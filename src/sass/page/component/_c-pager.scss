@@ -1,0 +1,43 @@
+@use 'global' as *;
+.prev-next {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  padding-top: rem(24);
+  @include mq ('md'){
+    padding-top: rem(32);
+  }
+}
+
+.previous,
+.next {
+  color: red;
+}
+
+.previous a,
+.next a {
+  padding: 0 rem(12) rem(8);
+  transition: all .3s;
+  display: block;
+}
+
+.previous a:hover,
+.next a:hover {
+  opacity: .7;
+  text-decoration: underline;
+}
+
+.top-link {
+  display: block;
+  transition: all .3s;
+  font-size: rem(14);
+}
+
+.top-link:hover {
+  opacity: .7;
+}
+
+.top-link img {
+  width: rem(24);
+  margin: 0 auto;
+}

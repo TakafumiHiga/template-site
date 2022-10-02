@@ -1,0 +1,59 @@
+@use 'global' as *;
+.prev-next {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+}
+
+.pagination {
+  clear: both;
+  padding-left: 15px;
+  padding-bottom: 20px;
+}
+
+.nav-links {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.pagination .current {
+  padding: 0 8px;
+  padding: 2px 9px 1px;
+}
+
+.pagination .current {
+  background:#28A7E1;
+  border: 1px solid #28A7E1;
+  color: #fff;
+}
+
+.pagination .current {
+  display: inline-block;
+}
+
+.page-numbers, .pagination {
+  clear: both;
+  padding-left: 15px;
+  padding-bottom: 20px;
+}
+
+.page-numbers a, .page-numbers .current, .pagination a, .pagination .current {
+  display: inline-block;
+}
+
+.page-numbers a, .pagination a {
+  background: #fff;
+  border: 1px solid #28A7E1;
+  color: #28A7E1;
+  padding: 2px 9px 1px;
+  text-decoration: none;
+  -webkit-transition: all 0.25s linear;
+  -moz-transition: all 0.25s linear;
+  transition: all 0.25s linear;
+}
+
+.pagination a:hover, .pagination .current {
+  background: #28A7E1;
+  border: 1px solid #28A7E1;
+  color: #fff;
+}

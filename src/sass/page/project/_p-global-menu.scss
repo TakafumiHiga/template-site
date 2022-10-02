@@ -1,0 +1,33 @@
+@use 'global' as *;
+
+.p-global-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: lightgray;
+}
+
+.p-global-menu__pc {
+  display: none;
+}
+
+@include mq ('md'){
+  .p-global-menu__pc {
+    display: flex;
+  }
+}
+
+.p-global-menu__mb {
+  display: block;
+}
+
+@include mq ('md'){
+  .p-global-menu__mb {
+    display: none;
+  }
+}
+
+.p-global-menu__logo {
+  display: block;
+}
+

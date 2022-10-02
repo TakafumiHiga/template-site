@@ -1,0 +1,11 @@
+@use 'global' as *;
+
+.c-logo {
+  width: rem(60);
+}
+
+@include mq ('md'){
+  .c-logo {
+    width: rem(80);
+  }
+}

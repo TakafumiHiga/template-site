@@ -1,0 +1,66 @@
+@use 'global' as *;
+
+// ハンバーガーメニューの全体
+.c-hamburger {
+  display: block;
+  width: rem(60);
+  height: rem(60);
+  position: relative;
+  border-radius: rem(100);
+  // top: 0;
+  // right: 0;
+  color: gray;
+  background-color:red;
+  z-index: 60;
+  // margin-top: rem(13);
+  // margin-right: rem(10);
+  cursor: pointer;
+  @include mq ('md'){
+    display: none;
+  }
+}
+
+.c-hamburger div {
+  height: rem(2);
+  width: rem(43);
+  border-radius: 5px; /* 線幅の半分 */
+  background-color: white;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: all 0.3s;
+}
+
+.c-hamburger div:nth-of-type(1) {
+  top: 43%;
+  width: rem(28);
+  // transform: translate(-50%, -50%);
+}
+
+.c-hamburger div:nth-of-type(2) {
+  top: 61%;
+  width: rem(24);
+  transform: translate(-50%, -50%);
+}
+
+.c-hamburger.active div:nth-of-type(1) {
+  transform: rotate(45deg) translate(-50%, -50%);
+  transform-origin: 0% 50%;
+  top: 50%;
+  left: 50%;
+  width: rem(24);
+}
+
+
+.c-hamburger.active div:nth-of-type(2) {
+  transform: rotate(-45deg) translate(-50%, -50%);
+  transform-origin: 0% 50%;
+  top: 50%;
+  left: 50%;
+  width: rem(24);
+}
+
+.c-hamburger .close,
+.c-hamburger.active .open {
+  opacity: 0;
+}

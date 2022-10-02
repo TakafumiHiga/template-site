@@ -1,0 +1,14 @@
+@use 'global' as *;
+
+.p-global-menu-items {
+  display: flex;
+  flex-direction: column;
+}
+
+@include mq ('md'){
+  .p-global-menu-items {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
