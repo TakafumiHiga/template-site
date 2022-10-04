@@ -16,7 +16,7 @@
     <meta property="og:site_name" content="" />
     <meta property="og:description" content="" />
     <!-- ファビコン -->
-    <link rel="”icon”" href="" />
+    <link rel="”icon”" href="#" />
     <!-- css -->
     <link rel="stylesheet" href="./assets/css/styles.css" />
     <!-- JavaScript -->
@@ -24,9 +24,63 @@
     <script defer src="./js/script.js"></script>
   </head>
   <body>
-    <div class="inner">
-      <p class="p-test">変更のテスト</p>
-      <a href="" class="c-btn-slide">ボタンです</a>
+    <div class="l-inner">
+      <section class="all-info inner-over">
+        <p>ディレクトリ画像パス</p>
+        <p>index.html➝「assets/images/common/sample-img2.jpg」</p>
+      </section>
+      <section class="l-btn test-con">
+        <a href="#" class="c-btn-slide">ボタンです</a>
+      </section>
+      <section class="grid-layout test-con template" id="grid-layout">
+        <h3>グリッドレイアウト</h3>
+        <h4>
+          grid-template-columns: repeat(auto-fit, minmax(345px, 1fr));を使用
+        </h4>
+        <div class="p-grids">
+          <div class="p-grid">
+            <figure class="p-grid__img">
+              <img src="assets/images/common/sample-img2.jpg" alt="box" />
+            </figure>
+            <p class="p-grid__text">minmax345px aspect 2 /1</p>
+          </div>
+          <div class="p-grid">
+            <figure class="p-grid__img">
+              <img src="assets/images/common/sample-img2.jpg" alt="box" />
+            </figure>
+            <p class="p-grid__text">minmax345px aspect 2 /1</p>
+          </div>
+          <div class="p-grid">
+            <figure class="p-grid__img">
+              <img src="assets/images/common/sample-img2.jpg" alt="box" />
+            </figure>
+            <p class="p-grid__text">minmax345px aspect 2 /1</p>
+          </div>
+          <div class="p-grid">
+            <figure class="p-grid__img">
+              <img src="assets/images/common/sample-img2.jpg" alt="box" />
+            </figure>
+            <p class="p-grid__text">minmax345px aspect 2 /1</p>
+          </div>
+          <div class="p-grid">
+            <figure class="p-grid__img">
+              <img src="assets/images/common/sample-img2.jpg" alt="box" />
+            </figure>
+            <p class="p-grid__text">minmax345px aspect 2 /1</p>
+          </div>
+        </div>
+        <h4 class="test-con">
+          p-gridsに子要素が1つの場合は画面いっぱいに広がります。
+        </h4>
+        <div class="p-grids">
+          <div class="p-grid">
+            <figure class="p-grid__img">
+              <img src="assets/images/common/sample-img2.jpg" alt="box" />
+            </figure>
+            <p class="p-grid__text">minmax345px aspect 2 /1</p>
+          </div>
+        </div>
+      </section>
     </div>
   </body>
 </html>

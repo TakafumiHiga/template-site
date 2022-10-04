@@ -158,11 +158,25 @@ select::-ms-expand {
 	width: 100%;
 }
 
-.p-test {
-	background-color: red;
+.all-info {
+	background-color: #95a1a7;
 	color: #fff;
-	font-size: 15px;
-	font-size: 0.9375rem;
+	padding: 30px;
+	padding: 1.875rem;
+}
+
+.test-con {
+	padding: 60px 0;
+	padding: 3.75rem 0;
+}
+
+.bg-gray {
+	background-color: #dddddd;
+}
+
+.inner-over {
+	margin: 0 calc(50% - 50vw);
+	width: 100vw;
 }
 
 .c-btn-slide {
@@ -184,7 +198,7 @@ select::-ms-expand {
 	padding-left: 2em;
 	position: relative;
 	text-decoration: none;
-	width: 340px;
+	width: 100%;
 }
 
 .c-btn-slide::before {
@@ -859,6 +873,27 @@ input[type=radio] + span {
 	display: block;
 }
 
+.p-grids {
+	gap: 40px 30px;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(1fr, 1fr));
+}
+
+.p-grid__img {
+	aspect-ratio: 2/1;
+	width: 100%;
+}
+
+.p-grid__img img {
+	-o-object-fit: cover;
+	height: 100%;
+	object-fit: cover;
+}
+
+.p-grid__text {
+	text-align: center;
+}
+
 .prev-next {
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -1088,6 +1123,10 @@ a:hover {
 
 .p-global-menu__mb {
 	display: none;
+}
+
+.p-grids {
+	grid-template-columns: repeat(auto-fit, minmax(345px, 1fr));
 }
 
 }

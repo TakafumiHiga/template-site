@@ -1,0 +1,21 @@
+@use "global" as *;
+
+.all-info {
+  background-color:#95a1a7;
+  color: $white;
+  padding: rem(30);
+}
+
+.test-con {
+  padding: rem(60) 0;
+}
+
+.bg-gray {
+  background-color: #dddddd;
+}
+
+.inner-over {
+  margin:0 calc(50% - 50vw);
+  width:100vw;
+}
+

@@ -1,0 +1,23 @@
+@use 'global' as *;
+
+.p-grids {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(1fr, 1fr));
+ gap: 40px 30px;
+ @include mq ('md'){
+  grid-template-columns: repeat(auto-fit, minmax(345px, 1fr));
+ }
+}
+
+.p-grid__img {
+  aspect-ratio: 2 / 1;
+  width: 100%;
+}
+
+.p-grid__img img {
+  object-fit: cover;
+  height: 100%;
+}
+.p-grid__text {
+  text-align: center;
+}
