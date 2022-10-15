@@ -170,3 +170,44 @@ function add_additional_class_on_a($classes, $item, $args)
   return $classes;
 }
 add_filter('nav_menu_link_attributes', 'add_additional_class_on_a', 1, 3);
+
+//MW WPFrom に　readonly 属性を追加
+function my_mwform_input_shortcode_tag( $output, $tag, $attr ) {
+	if ( $tag == 'mwform_text' && $attr['name'] == 'セミナー名' ) {
+		$output = str_replace( '<input ', '<input readonly ', $output );
+	}
+		if ( $tag == 'mwform_text' && $attr['name'] == '開催日時' ) {
+		$output = str_replace( '<input ', '<input readonly ', $output );
+	}
+		if ( $tag == 'mwform_text' && $attr['name'] == '講師名' ) {
+		$output = str_replace( '<input ', '<input readonly ', $output );
+	}
+	return $output;
+}
+
+add_filter( 'do_shortcode_tag', 'my_mwform_input_shortcode_tag', 10, 3 );
+
+// カスタム投稿追加　セミナー
+add_action('init', function(){
+  register_post_type('seminar_info',[
+    'label' => 'セミナー',
+    'public' => true,
+    'menu_position' => 5,
+    'has_archive' => true,
+    'hierarchical' => true,
+    'show_in_rest' =>true,
+    'supports' => ['thumbnail', 'title', 'editor','custom-fields'],
+  ]);
+    // カスタム分類を追加
+    register_taxonomy('seminar_genru', 'seminar_info', [
+      'label' => 'セミナーの種類',
+      'public'            => true,
+      'hierarchical'      => true,
+      'show_ui'           => true,
+      'query_var'         => true,
+      'rewrite'           => true,
+      'singular_label'    => '記事カテゴリ',
+      'show_in_rest'      => true, //追記
+      'show_admin_column' => true
+    ]);
+});

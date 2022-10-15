@@ -161,8 +161,8 @@ select::-ms-expand {
 .all-info {
 	background-color: #95a1a7;
 	color: #fff;
-	padding: 30px;
-	padding: 1.875rem;
+	padding: 10px;
+	padding: 0.625rem;
 }
 
 .test-con {
