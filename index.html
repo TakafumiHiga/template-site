@@ -39,9 +39,72 @@
     <link rel="stylesheet" href="./assets/css/styles.css" />
     <!-- JavaScript -->
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script defer src="./js/script.js"></script>
+    <script defer src="./assets/js/script.js"></script>
   </head>
-  <body>
+  <header class="p-header">
+    <!-- マスク -->
+    <div class="p-header-menu__mask c-mask" id="js-mask"></div>
+    <nav class="p-header__menu l-global-menu p-global-menu" id="js-navi__menu">
+      <!-- トップページのロゴ -->
+      <a href="#" class="p-global-menu__logo">
+        <img class="c-logo" src="assets/images/common/logo.svg" alt="ロゴ"
+      /></a>
+      <div class="p-global-menu__pc">
+        <ul class="p-global-menu-items">
+          <li class="p-global-menu-item">
+            <a class="p-global-menu-item__link" href="#">トップ</a>
+          </li>
+          <li class="p-global-menu-item">
+            <a class="p-global-menu-item__link" href="#">会社概要</a>
+          </li>
+          <li class="p-global-menu-item menu-item-has-children">
+            <a class="p-global-menu-item__link" href="#">親メニュー</a>
+            <ul class="sub_menu">
+              <li class="menu-item">
+                <a class="p-global-menu-item__link" href="">子メニュー</a>
+              </li>
+            </ul>
+          </li>
+          <li class="p-global-menu-item">
+            <a class="p-global-menu-item__link" href="#">お問い合わせ</a>
+          </li>
+        </ul>
+      </div>
+      <!-- ハンバーガーメニュー -->
+      <a class="p-global-menu__hamburger c-hamburger" id="js-hamburger">
+        <div></div>
+        <div></div>
+        <div></div>
+        <span>MENU</span>
+      </a>
+    </nav>
+    <!-- ハンバーガーメニューの中身 -->
+    <div
+      id="js-drower"
+      class="l-drower p-drower-menu p-global-menu__mb p-drower"
+    >
+      <ul class="p-global-menu-items">
+        <li class="p-global-menu-item">
+          <a class="p-global-menu-item__link" href="#">トップ</a>
+        </li>
+        <li class="p-global-menu-item">
+          <a class="p-global-menu-item__link" href="#">会社概要</a>
+        </li>
+        <li class="p-global-menu-item menu-item-has-children">
+          <a class="p-global-menu-item__link" href="#">親メニュー</a>
+          <ul class="sub_menu">
+            <li class="menu-item">
+              <a class="p-global-menu-item__link" href="">子メニュー</a>
+            </li>
+          </ul>
+        </li>
+        <li class="p-global-menu-item">
+          <a class="p-global-menu-item__link" href="#">お問い合わせ</a>
+        </li>
+      </ul>
+    </div>
+  </header>
+  <body id="js-body">
     <div class="l-inner">
       <section class="all-info inner-over template">
         <h2>ディレクトリ画像パス</h2>

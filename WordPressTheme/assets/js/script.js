@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
       this.classList.toggle("active");
       document.getElementById("js-drower").classList.toggle("active");
       document.getElementById("js-mask").classList.toggle("active");
-      document.getElementById("js-navi__menu").classList.toggle("active");
+      // document.getElementById("js-navi__menu").classList.toggle("active");
       document.getElementById("js-body").classList.toggle("active");
     });
   document.getElementById("js-drower").addEventListener("click", function () {

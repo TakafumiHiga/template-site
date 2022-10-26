@@ -856,13 +856,17 @@ input[type=radio] + span {
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
-	-webkit-box-pack: justify;
-	-ms-flex-pack: justify;
-	justify-content: space-between;
 }
 
 .p-global-menu__pc {
 	display: none;
+}
+
+.p-global-menu-items {
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+	width: 100%;
 }
 
 .p-global-menu__mb {
@@ -959,6 +963,14 @@ input[type=radio] + span {
 	background: #28A7E1;
 	border: 1px solid #28A7E1;
 	color: #fff;
+}
+
+.sub_menu {
+	display: none;
+}
+
+.menu-item-has-children:hover .sub_menu {
+	display: block;
 }
 
 @media (min-width: 576px) {
@@ -1119,6 +1131,10 @@ a:hover {
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 50rem;
+	width: 100%;
 }
 
 .p-global-menu__mb {

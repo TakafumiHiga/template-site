@@ -1,0 +1,8 @@
+@use 'global' as *;
+.sub_menu {
+  display: none;
+}
+
+.menu-item-has-children:hover .sub_menu {
+  display: block;
+}
