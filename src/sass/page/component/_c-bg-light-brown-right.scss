@@ -1,0 +1,20 @@
+@use 'global' as *;
+
+.c-bg-light-brown-right {
+  background: linear-gradient(#f0e7e1 0%, #ded5cf 100%);
+  @include mq ('md'){
+    background: linear-gradient(to right, transparent 0%, transparent 0% 26%, #f0e7e1 0%, #ded5cf 100%,);   
+  }
+}
+
+.c-bg-light-brown-right p,
+.c-bg-light-brown-left p {
+  height: 40vh;
+}
+
+.c-bg-light-brown-left {
+  background: linear-gradient(#f0e7e1 0%, #ded5cf 100%);
+  @include mq ('md'){
+    background: linear-gradient(to left, transparent 0%, transparent 0% 26%, #f0e7e1 0%, #ded5cf 100%,);   
+  }
+}

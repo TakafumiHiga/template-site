@@ -179,6 +179,21 @@ select::-ms-expand {
 	width: 100vw;
 }
 
+.c-bg-light-brown-right {
+	background: -webkit-gradient(linear, left top, left bottom, from(#f0e7e1), to(#ded5cf));
+	background: linear-gradient(#f0e7e1 0%, #ded5cf 100%);
+}
+
+.c-bg-light-brown-right p,
+.c-bg-light-brown-left p {
+	height: 40vh;
+}
+
+.c-bg-light-brown-left {
+	background: -webkit-gradient(linear, left top, left bottom, from(#f0e7e1), to(#ded5cf));
+	background: linear-gradient(#f0e7e1 0%, #ded5cf 100%);
+}
+
 .c-btn-slide {
 	-ms-flex-line-pack: center;
 	align-content: center;
@@ -1096,6 +1111,16 @@ a:hover {
 	max-width: 1150px;
 	padding-left: 25px;
 	padding-right: 25px;
+}
+
+.c-bg-light-brown-right {
+	background: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(0%, transparent), color-stop(0%, #f0e7e1), to(#ded5cf));
+	background: linear-gradient(to right, transparent 0%, transparent 0% 26%, #f0e7e1 0%, #ded5cf 100%);
+}
+
+.c-bg-light-brown-left {
+	background: -webkit-gradient(linear, right top, left top, from(transparent), color-stop(0%, transparent), color-stop(0%, #f0e7e1), to(#ded5cf));
+	background: linear-gradient(to left, transparent 0%, transparent 0% 26%, #f0e7e1 0%, #ded5cf 100%);
 }
 
 .c-hamburger {
