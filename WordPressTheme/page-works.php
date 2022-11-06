@@ -3,10 +3,13 @@
 <div class="l-inner">
   <?php
   $args = array(
+    $paged = get_query_var('paged') ? get_query_var('paged') : 1;//ページ送り　記事ページはpage
     'post_type' => 'post', //複数のカスタム投稿を表示する
     // 'orderby' => 'post_date',
     // 'showposts' => 10, 
     'posts_per_page' => 20,  //1ページに表示する数の指定
+    'order'   => 'DESC', //最新から並び順
+    'paged' => $paged,//ページ送り
   ); 
   $the_query = new WP_Query($args); ?>
 

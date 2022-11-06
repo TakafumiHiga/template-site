@@ -41,15 +41,52 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script defer src="./assets/js/script.js"></script>
   </head>
-  <header class="p-header">
-    <!-- マスク -->
-    <div class="p-header-menu__mask c-mask" id="js-mask"></div>
-    <nav class="p-header__menu l-global-menu p-global-menu" id="js-navi__menu">
-      <!-- トップページのロゴ -->
-      <a href="#" class="p-global-menu__logo">
-        <img class="c-logo" src="assets/images/common/logo.svg" alt="ロゴ"
-      /></a>
-      <div class="p-global-menu__pc">
+  <body id="js-body">
+    <header class="p-header">
+      <!-- マスク -->
+      <div class="p-header-menu__mask c-mask" id="js-mask"></div>
+      <nav
+        class="p-header__menu l-global-menu p-global-menu"
+        id="js-navi__menu"
+      >
+        <!-- トップページのロゴ -->
+        <a href="#" class="p-global-menu__logo">
+          <img class="c-logo" src="assets/images/common/logo.svg" alt="ロゴ"
+        /></a>
+        <div class="p-global-menu__pc">
+          <ul class="p-global-menu-items">
+            <li class="p-global-menu-item">
+              <a class="p-global-menu-item__link" href="/">トップ</a>
+            </li>
+            <li class="p-global-menu-item">
+              <a class="p-global-menu-item__link" href="/tab.html">タブ</a>
+            </li>
+            <li class="p-global-menu-item menu-item-has-children">
+              <a class="p-global-menu-item__link" href="#">親メニュー</a>
+              <ul class="sub_menu">
+                <li class="menu-item">
+                  <a class="p-global-menu-item__link" href="">子メニュー</a>
+                </li>
+              </ul>
+            </li>
+            <li class="p-global-menu-item">
+              <a class="p-global-menu-item__link" href="#">お問い合わせ</a>
+            </li>
+          </ul>
+        </div>
+        <!-- ハンバーガーメニュー -->
+        <a class="p-global-menu__hamburger c-hamburger" id="js-hamburger">
+          <div></div>
+          <div></div>
+          <div></div>
+          <span>MENU</span>
+        </a>
+      </nav>
+      <!-- ハンバーガーメニューの中身 -->
+      <div
+        id="js-drower"
+        class="l-drower p-drower-menu p-global-menu__mb p-drower"
+      >
         <ul class="p-global-menu-items">
           <li class="p-global-menu-item">
             <a class="p-global-menu-item__link" href="#">トップ</a>
@@ -70,41 +107,8 @@
           </li>
         </ul>
       </div>
-      <!-- ハンバーガーメニュー -->
-      <a class="p-global-menu__hamburger c-hamburger" id="js-hamburger">
-        <div></div>
-        <div></div>
-        <div></div>
-        <span>MENU</span>
-      </a>
-    </nav>
-    <!-- ハンバーガーメニューの中身 -->
-    <div
-      id="js-drower"
-      class="l-drower p-drower-menu p-global-menu__mb p-drower"
-    >
-      <ul class="p-global-menu-items">
-        <li class="p-global-menu-item">
-          <a class="p-global-menu-item__link" href="#">トップ</a>
-        </li>
-        <li class="p-global-menu-item">
-          <a class="p-global-menu-item__link" href="#">会社概要</a>
-        </li>
-        <li class="p-global-menu-item menu-item-has-children">
-          <a class="p-global-menu-item__link" href="#">親メニュー</a>
-          <ul class="sub_menu">
-            <li class="menu-item">
-              <a class="p-global-menu-item__link" href="">子メニュー</a>
-            </li>
-          </ul>
-        </li>
-        <li class="p-global-menu-item">
-          <a class="p-global-menu-item__link" href="#">お問い合わせ</a>
-        </li>
-      </ul>
-    </div>
-  </header>
-  <body id="js-body">
+    </header>
+
     <div class="l-inner">
       <section class="all-info inner-over template">
         <h2>ディレクトリ画像パス</h2>
@@ -176,6 +180,122 @@
             </p>
           </div>
         </section>
+      </section>
+      <section class="l-table">
+        <div class="p-single-post__table p-table">
+          <div class="p-table__item">
+            <h3>事例概要</h3>
+            <dl class="p-table-item__wrap">
+              <dt class="p-table-item__title">施工年月</dt>
+              <dd class="p-table-item__">愛知県名古屋市</dd>
+            </dl>
+          </div>
+        </div>
+        <div class="p-single-post__table p-table">
+          <div class="p-table__item">
+            <h3>tableタイトル</h3>
+            <div class="p-table__item-wrap">
+              <div class="p-table__item-title">テーブル</div>
+              <div class="p-table__item-desc">
+                first-childは効かないので、nth-of-type()を使って指定する
+              </div>
+            </div>
+            <div class="p-table__item-wrap">
+              <div class="p-table__item-title">施工場所</div>
+              <div class="p-table__item-desc">愛知県名古屋市</div>
+            </div>
+          </div>
+          <div class="p-table__item">
+            <h3>ご依頼内容</h3>
+            <div class="p-table__item-wrap">
+              <div class="p-table__item-title">業種</div>
+              <div class="p-table__item-desc">
+                1テストストテストストテストスト
+              </div>
+            </div>
+            <div class="p-table__item-wrap">
+              <div class="p-table__item-title">施工場所</div>
+              <div class="p-table__item-desc">
+                2テストストテストストテストスト
+              </div>
+            </div>
+          </div>
+          <div class="p-table__item">
+            <h3>施工内容</h3>
+            <div class="p-table__item-wrap">
+              <div class="p-table__item-title">工法</div>
+              <div class="p-table__item-desc">
+                1テストストテストストテストスト
+              </div>
+            </div>
+            <div class="p-table__item-wrap">
+              <div class="p-table__item-title">サイズ</div>
+              <div class="p-table__item-desc">
+                1テストストテストストテストスト
+              </div>
+            </div>
+            <div class="p-table__item-wrap">
+              <div class="p-table__item-title">深さ</div>
+              <div class="p-table__item-desc">
+                1テストストテストストテストスト
+              </div>
+            </div>
+            <div class="p-table__item-wrap">
+              <div class="p-table__item-title">その他</div>
+              <div class="p-table__item-desc">
+                1テストストテストストテストスト
+              </div>
+            </div>
+            <div class="p-table__item-wrap">
+              <div class="p-table__item-title">設置場所</div>
+              <div class="p-table__item-desc">
+                1テストストテストストテストスト
+              </div>
+            </div>
+            <div class="p-table__item-wrap">
+              <div class="p-table__item-title">設置機種</div>
+              <div class="p-table__item-desc">
+                1テストストテストストテストスト
+              </div>
+            </div>
+            <div class="p-table__item-wrap">
+              <div class="p-table__item-title">設置方法</div>
+              <div class="p-table__item-desc">
+                1テストストテストストテストスト
+              </div>
+            </div>
+            <div class="p-table__item-wrap">
+              <div class="p-table__item-title">検証場所</div>
+              <div class="p-table__item-desc">
+                1テストストテストストテストスト
+              </div>
+            </div>
+            <div class="p-table__item-wrap">
+              <div class="p-table__item-title">施工年</div>
+              <div class="p-table__item-desc">
+                1テストストテストストテストスト
+              </div>
+            </div>
+            <div class="p-table__item-wrap">
+              <div class="p-table__item-title">建物規模</div>
+              <div class="p-table__item-desc">
+                1テストストテストストテストスト
+              </div>
+            </div>
+            <div class="p-table__item-wrap">
+              <div class="p-table__item-title">工事日</div>
+              <div class="p-table__item-desc">
+                1テストストテストストテストスト
+              </div>
+            </div>
+            <div class="p-table__item-wrap">
+              <div class="p-table__item-title">撮影日</div>
+              <div class="p-table__item-desc">
+                1テストストテストストテストスト
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
     </div>
   </body>

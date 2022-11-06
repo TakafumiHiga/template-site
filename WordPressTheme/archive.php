@@ -3,38 +3,31 @@
   <div class="p-archive-cards">
 
     <!-- ループの開始 -->
-    <?php
-      $paged = get_query_var('paged')? get_query_var('paged') : 1;
-      $args = array(
-        'post_type' => 'post',
-        'orderby' => 'post_date',
-        'posts_per_page' => 12,
-        'paged' => $paged           //ページ送り
-      ); 
-      $the_query = new WP_Query($args); ?>
 
-    <?php if ( $the_query->have_posts() ): ?>
-    <?php while($the_query->have_posts()):$the_query->the_post(); ?>
-    <span class="tag"><?php echo $cat;?></span>
-    <a href="<?php the_permalink(); ?>" class="">
-      <figure class="">
+    <?php if (have_posts()): ?>
+    <?php while (have_posts()) : the_post(); ?>
 
+
+    <a class="p-archive-post" href="<?php the_permalink(); ?>">
+      <figure class="p-archive-post__img">
         <?php
-                if(has_post_thumbnail()):
-                  the_post_thumbnail('medium_thumbnail');
-                else:?>
-
-        <!-- 画像がなかった時の表示 -->
-        <img src="<?php echo esc_url(get_theme_file_uri('/')); ?>" alt="">
-        <?php endif;?>
+          if(has_post_thumbnail()):
+            the_post_thumbnail('medium_thumbnail');
+          else:
+            ?>
+        <img src="<?php echo esc_url(get_theme_file_uri('/')); ?>" alt="" />
+        <?php 
+              endif;
+              ?>
       </figure>
-      <p class=""><?php echo mb_substr($post-> post_title, 0, 38).''; ?>
-      </p>
+      <div class="p-archive-post__bottom">
+        <h3 class="p-archive-post__title"><?php echo mb_substr($post-> post_title, 0, 15).'...'; ?></h3>
+        <p class="p-archive-post__desc"><?php the_content();?></p>
+      </div>
     </a>
-    <?php endwhile; ?>
+    <?php endwhile;?>
     <?php else: ?>
     <?php endif;?>
-    <?php wp_reset_postdata(); ?>
   </div>
 
   <!-- ページナビ -->

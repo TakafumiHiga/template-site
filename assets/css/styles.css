@@ -203,16 +203,10 @@ select::-ms-expand {
 	border-color: #023178;
 	color: #999;
 	color: #023178;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-ms-flex-wrap: wrap;
-	flex-wrap: wrap;
-	height: 100px;
 	opacity: 1;
-	padding-left: 2em;
+	padding: 8px 24px;
+	padding: 0.5rem 1.5rem;
 	position: relative;
-	text-decoration: none;
 	width: 100%;
 }
 
@@ -911,6 +905,101 @@ input[type=radio] + span {
 
 .p-grid__text {
 	text-align: center;
+}
+
+.p-table__item {
+	margin-bottom: 56px;
+}
+
+.p-table__item h3 {
+	color: #1958BC;
+	font-size: 1.25em;
+	font-weight: 700;
+	line-height: 1.35;
+	padding: 10px;
+}
+
+.p-table__item dl {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	width: 100%;
+}
+
+.p-table__item dt,
+.p-table__item dd {
+	padding: 15px 15px 15px 30px;
+}
+
+.p-table__item dt {
+	background-color: #1958BC;
+	color: #fff;
+	width: 35%;
+}
+
+.p-table__item dd {
+	border-bottom: solid 1px #1958BC;
+	border-right: solid 1px #1958BC;
+	border-top: solid 1px #1958BC;
+	width: 65%;
+}
+
+/* case 事例 詳細 */
+
+.p-table {
+	border-collapse: collapse;
+	display: table;
+	width: 100%;
+}
+
+.p-table__item {
+	margin-bottom: 56px;
+}
+
+.p-table__item h3 {
+	color: #1958BC;
+	font-size: 1.25em;
+	font-weight: 700;
+	line-height: 1.35;
+	padding: 10px;
+}
+
+.p-table__item-wrap {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	width: 100%;
+}
+
+.p-table__item-title,
+.p-table__item-desc {
+	display: table-cell;
+	padding: 15px 15px 15px 30px;
+}
+
+.p-table__item-title {
+	background-color: #1958BC;
+	border-bottom: solid 1px #fff;
+	color: #fff;
+	width: 35%;
+}
+
+.p-table__item-wrap:nth-of-type(1) .p-table__item-title {
+	border-top: solid 1px #1958BC;
+}
+
+.p-table__item-wrap:last-child .p-table__item-title {
+	border-bottom: solid 1px #1958BC;
+}
+
+.p-table__item-wrap:nth-of-type(1) .p-table__item-desc {
+	border-top: solid 1px #1958BC;
+}
+
+.p-table__item-desc {
+	border-bottom: solid 1px #1958BC;
+	border-right: solid 1px #1958BC;
+	width: 65%;
 }
 
 .prev-next {

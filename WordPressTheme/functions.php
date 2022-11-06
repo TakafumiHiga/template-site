@@ -162,14 +162,25 @@ function pagename_class($classes = ''){
 add_filter('body_class', 'pagename_class');
 
 // wp_nav_menuのaにclass追加
-function add_additional_class_on_a($classes, $item, $args)
+// function add_additional_class_on_a($classes, $item, $args)
+// {
+//   if (isset($args->add_li_class)) {
+//     $classes['class'] = $args->add_a_class;
+//   }
+//   return $classes;
+// }
+// add_filter('nav_menu_link_attributes', 'add_additional_class_on_a', 1, 3);
+
+// wp_nav_menuのliにclass追加
+function add_additional_class_on_li($classes, $item, $args)
 {
   if (isset($args->add_li_class)) {
-    $classes['class'] = $args->add_a_class;
+    $classes['class'] = $args->add_li_class;
   }
   return $classes;
 }
-add_filter('nav_menu_link_attributes', 'add_additional_class_on_a', 1, 3);
+add_filter('nav_menu_css_class', 'add_additional_class_on_li', 1, 3);
+
 
 //MW WPFrom に　readonly 属性を追加
 function my_mwform_input_shortcode_tag( $output, $tag, $attr ) {
@@ -192,7 +203,7 @@ add_action('init', function(){
   register_post_type('seminar_info',[
     'label' => 'セミナー',
     'public' => true,
-    'menu_position' => 5,
+    'menu_position' => 10,
     'has_archive' => true,
     'hierarchical' => true,
     'show_in_rest' =>true,
@@ -211,3 +222,40 @@ add_action('init', function(){
       'show_admin_column' => true
     ]);
 });
+
+// カスタム投稿を追加（制作事例）
+add_action('init', function(){
+  register_post_type('works',[
+    'label' => '制作事例',
+    'public' => true,
+    'menu_position' => 5,
+    'has_archive' => true,
+    'hierarchical' => true,
+    'show_in_rest' =>true,
+    'supports' => ['thumbnail', 'title', 'editor','custom-fields'],
+  ]);
+    // カスタム分類を追加
+    register_taxonomy('works-cat', 'works', [
+      'label' => '制作事例',
+      'public'            => true,
+      'hierarchical'      => true,
+      'show_ui'           => true,
+      'query_var'         => true,
+      'rewrite'           => true,
+      'singular_label'    => '記事カテゴリ',
+      'show_in_rest'      => true, //追記
+      'show_admin_column' => true
+    ]);
+});
+
+/* 投稿アーカイブを有効にしてスラッグを指定する */
+function post_has_archive( $args, $post_type ) {
+
+	if ( 'post' == $post_type ) {
+			$args['rewrite'] = true;
+			$args['has_archive'] = 'column'; 
+			$args['label'] = 'コラム';
+	}
+	return $args;
+}
+add_filter( 'register_post_type_args', 'post_has_archive', 10, 2 );
