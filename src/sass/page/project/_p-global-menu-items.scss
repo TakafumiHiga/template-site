@@ -12,3 +12,92 @@
     justify-content: space-between;
   }
 }
+
+// ドロップダウンメニュー　グローバルメニューのliのみに指定（無効：drower、footer）
+
+.p-global-menu-items .menu-item-has-children {
+  // 起点
+  position: relative;
+  transition: all .3s;
+  cursor: pointer;
+}
+
+.p-global-menu-items .menu-item-has-children a:hover {
+  opacity: .7;
+}
+
+
+// 子メニューをもつliタグに矢印を指定
+
+.p-global-menu-items .menu-item-has-children::before {
+  content:"";
+  position: absolute;
+  background-image: url(../../assets/images/common/arrow-to-bottom.svg);
+  width: rem(10);
+  height: rem(6);
+  background-position: center center;
+  background-repeat: no-repeat;
+  display: inline-block;
+  background-size: contain;
+  top: 50%;
+  right: 8%;
+  transform: translateY(-50%) rotate(360deg);
+  transition: all .3s ease;
+}
+
+
+// 子メニューのulを非表示。diplayを使わないのでふわっとする
+
+.p-global-menu-items .menu-item-has-children > .sub-menu {
+  position: absolute;
+  transition: all .3s ease;
+  top: 120%;
+  left: 0;
+  width: 100%;
+  z-index: 4;
+  visibility: hidden;
+  opacity: 0;
+  transform: scaleY(0);
+  transform-origin: center top;
+  border-radius: 3px;
+  background-color: #F7F2ED;
+  text-align: left;
+}
+
+.p-global-menu-items .sub-menu > li {
+  padding-top: rem(15);
+  padding-bottom: rem(15);
+  padding-left: rem(38);
+}
+
+
+.p-global-menu-items .sub-menu > li a {
+  display: block;
+  position: relative;
+}
+
+.p-global-menu-items .sub-menu > li a:hover {
+  opacity: .7;
+}
+
+// 子メニューのあしらい矢印
+.p-global-menu-items .sub-menu > li a::before {
+  content: '';
+  background-image: url(../../assets/images/common/menu-boder.svg);
+  background-repeat: no-repeat;
+  display: inline-block;
+  background-size: contain;
+  width: rem(14);
+  height: 1px;
+  position: absolute;
+  top: 50%;
+  left: -13%;
+  transform: translateY(-50%);
+}
+
+.p-global-menu-items .menu-item-has-children:hover > .sub-menu,
+.p-global-menu-items .menu-item-has-children:hover > .sub-menu > li {
+  visibility: visible;
+  opacity: 1;
+  transform: scaleY(1);
+ }

@@ -1,0 +1,31 @@
+@use 'global' as *;
+
+/* 記事ページ */ 
+.p-single-post__inner {
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+}
+.p-single-post__img {
+  aspect-ratio: 7 / 4;
+  width: 100%;
+  height: auto;
+}
+
+.p-single-post__img img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+
+.p-single-post__desc {
+  font-size: 1em;
+  font-weight: normal;
+  line-height: 1.5;
+}
+
+.p-single-post__tag, 
+.p-archive__tag {
+  margin-top: 10px;
+}

@@ -1,31 +1,185 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-  <meta name="format-detection" content="telephone=no" />
-  <!-- meta情報 -->
-  <title>ボタンパーツ</title>
-  <meta name="description" content="" />
-  <meta name="keywords" content="" />
-  <!-- ogp -->
-  <meta property="og:title" content="" />
-  <meta property="og:type" content="" />
-  <meta property="og:url" content="" />
-  <meta property="og:image" content="" />
-  <meta property="og:site_name" content="" />
-  <meta property="og:description" content="" />
-  <!-- ファビコン -->
-  <link rel="”icon”" href="" />
-  <!-- css -->
-  <link rel="stylesheet" href="./assets/css/styles.css">
-  <!-- JavaScript -->
-  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-  <script defer src="./js/script.js"></script>
-</head>
-<body>
-  <div class="inner">
-  <p class="test">変更のテスト</p>
-</div>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <!-- meta情報 -->
+    <title>ボタンパーツ</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <!-- ogp -->
+    <meta property="og:title" content="" />
+    <meta property="og:type" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:site_name" content="" />
+    <meta property="og:description" content="" />
+    <!-- ファビコン -->
+    <link rel="”icon”" href="" />
+    <!-- css -->
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script defer src="./js/script.js"></script>
+  </head>
+  <body id="js-body">
+    <header class="l-header">
+      <div class="p-header">
+        <!-- マスク -->
+        <div class="p-header-menu__mask c-mask" id="js-mask"></div>
+        <nav
+          class="p-header__menu l-global-menu p-global-menu"
+          id="js-navi__menu"
+        >
+          <!-- トップページのロゴ -->
+          <a href="/" class="p-global-menu__logo">
+            <img
+              class="c-logo"
+              src="/assets/images/common/logo.svg')"
+              alt="ロゴ"
+          /></a>
+          <div class="p-global-menu__pc">
+            <ul class="p-global-menu-items">
+              <li class="p-global-menu-item">
+                <a class="p-global-menu-item__link" href="">選ばれる理由</a>
+              </li>
+              <li class="p-global-menu-item menu-item-has-children">
+                <a class="p-global-menu-item__link" href="/">売りたい人</a>
+                <ul class="sub-menu">
+                  <li class="menu-item menu-item-has-children">
+                    <a class="p-global-menu-item__link" href="/"
+                      >査定について</a
+                    >
+                    <ul class="sub-menu">
+                      <li class="menu-item">
+                        <a class="p-global-menu-item__link" href="/"
+                          >査定について</a
+                        >
+                      </li>
+                      <li class="menu-item">
+                        <a class="p-global-menu-item__link" href="/"
+                          >ご売却の流れ</a
+                        >
+                      </li>
+                      <li class="menu-item">
+                        <a class="p-global-menu-item__link" href="/"
+                          >よくあるご質問</a
+                        >
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="menu-item">
+                    <a class="p-global-menu-item__link" href="/"
+                      >ご売却の流れ</a
+                    >
+                  </li>
+                  <li class="menu-item">
+                    <a class="p-global-menu-item__link" href="/"
+                      >よくあるご質問</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li class="p-global-menu-item menu-item-has-children">
+                <a class="p-global-menu-item__link" href="/">買いたい人</a>
+                <ul class="sub-menu">
+                  <li class="menu-item">
+                    <a class="p-global-menu-item__link" href="/">物件一覧</a>
+                  </li>
+                  <li class="menu-item">
+                    <a class="p-global-menu-item__link" href="/"
+                      >ご購入の流れ</a
+                    >
+                  </li>
+                  <li class="menu-item">
+                    <a class="p-global-menu-item__link" href="/"
+                      >よくあるご質問</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li class="p-global-menu-item">
+                <a class="p-global-menu-item__link" href="/">成約事例</a>
+              </li>
+              <li class="p-global-menu-item">
+                <a class="p-global-menu-item__link" href="/">会社概要</a>
+              </li>
+              <li class="p-global-menu-item">
+                <a class="p-global-menu-item__link" href="/">事業者の方へ</a>
+              </li>
+              <li class="p-global-menu-item">
+                <a class="p-global-menu-item__link" href="/">スタッフ</a>
+              </li>
+              <li class="p-global-menu-item c-global-nav-contact">
+                <a class="p-global-menu-item__link" href="/">お問い合わせ</a>
+              </li>
+            </ul>
+          </div>
+          <!-- ハンバーガーメニュー -->
+          <a class="p-global-menu__hamburger c-hamburger" id="js-hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+          </a>
+        </nav>
+        <!-- ハンバーガーメニューの中身 -->
+        <div
+          id="js-drower"
+          class="l-drower p-drower-menu p-global-menu__mb p-drower"
+        >
+          <ul class="p-drower__items">
+            <li class="p-drower__item">
+              <a class="p-drower__item-link" href="/">選ばれる理由</a>
+            </li>
+            <li class="p-drower__item menu-item-has-children">
+              <a class="p-drower__item-link acd2">売りたい人</a>
+              <ul class="sub-menu acd__item2">
+                <li class="menu-item menu-item-child">
+                  <a class="p-drower__item-link" href="/">査定について</a>
+                </li>
+                <li class="menu-item menu-item-child">
+                  <a class="p-drower__item-link" href="/">ご売却の流れ</a>
+                </li>
+                <li class="menu-item menu-item-child">
+                  <a class="p-drower__item-link" href="/">よくあるご質問</a>
+                </li>
+              </ul>
+            </li>
+            <li class="p-drower__item menu-item-has-children">
+              <a class="p-drower__item-link acd2">買いたい人</a>
+              <ul class="sub-menu acd__item2">
+                <li class="menu-item menu-item-child">
+                  <a class="p-drower__item-link" href="/">物件一覧</a>
+                </li>
+                <li class="menu-item menu-item-child">
+                  <a class="p-drower__item-link" href="/">ご購入の流れ</a>
+                </li>
+                <li class="menu-item menu-item-child">
+                  <a class="p-drower__item-link" href="/">よくあるご質問</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <div class="p-drower__bottom">
+            <ul class="p-drower__bottom-items">
+              <li class="p-drower__bottom-item"><a href="/">成約事例</a></li>
+              <li class="p-drower__bottom-item"><a href="/">会社概要</a></li>
+              <li class="p-drower__bottom-item">
+                <a href="/">事業者の方へ</a>
+              </li>
+              <li class="p-drower__bottom-item"><a href="/">スタッフ</a></li>
+            </ul>
+            <a class="c-btn c-contact-btn p-drower__bottom-contact-btn" href="/"
+              >お問い合わせ</a
+            >
+            <a class="p-drower__bottom-tel" href="tel:052-880-9022"
+              >TEL：052-880-9022</a
+            >
+            <p class="p-drower__bottom-time">営業時間：平日9:00〜19:00</p>
+          </div>
+        </div>
+      </div>
+    </header>
+  </body>
 </html>

@@ -1,0 +1,24 @@
+@use 'global' as *;
+
+/* パンくずリスト */
+
+.c-breadcrumbs {
+  margin-bottom: rem(25);
+  text-align: right;
+  margin-top: rem(25);
+  font-size: rem(14);
+  @include mq ('md'){
+    .c-breadcrumbs {
+      margin-bottom: rem(50);
+      margin-top: rem(50);
+      font-size: rem(14);
+    }
+  }
+}
+
+.c-breadcrumbs a:not(:last-child) {
+  transition: all .3s;
+}
+.c-breadcrumbs a:hover {
+ text-decoration: underline;
+}

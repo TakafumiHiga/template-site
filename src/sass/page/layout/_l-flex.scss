@@ -1,0 +1,8 @@
+@use 'global' as *;
+
+    .l-flex {
+      @include mq ('md'){
+        display: flex;
+      }
+    }
+  

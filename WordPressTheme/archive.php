@@ -1,38 +1,46 @@
 <?php get_header(); ?>
-<div class="l-inner">
-  <div class="p-archive-cards">
+<div class="l-inner l-post-container">
+  <div class="l-flex">
+    <div class="p-archive-posts">
+      <!-- ループの開始 -->
+      <?php if (have_posts()): ?>
+      <?php while (have_posts()): the_post(); ?>
+      <a class="p-archive-post" href="<?php the_permalink(); ?>">
 
-    <!-- ループの開始 -->
-
-    <?php if (have_posts()): ?>
-    <?php while (have_posts()) : the_post(); ?>
-
-
-    <a class="p-archive-post" href="<?php the_permalink(); ?>">
-      <figure class="p-archive-post__img">
-        <?php
+        <figure class="p-archive-post__img">
+          <?php
           if(has_post_thumbnail()):
             the_post_thumbnail('medium_thumbnail');
           else:
             ?>
-        <img src="<?php echo esc_url(get_theme_file_uri('/')); ?>" alt="" />
-        <?php 
+          <img src="<?php echo esc_url(get_theme_file_uri('/')); ?>" alt="" />
+          <?php 
               endif;
               ?>
-      </figure>
-      <div class="p-archive-post__bottom">
-        <h3 class="p-archive-post__title"><?php echo mb_substr($post-> post_title, 0, 15).'...'; ?></h3>
-        <p class="p-archive-post__desc"><?php the_content();?></p>
-      </div>
-    </a>
-    <?php endwhile;?>
-    <?php else: ?>
-    <?php endif;?>
-  </div>
+        </figure>
+        <div class="p-archive-post__body">
+          <div class="p-archive-post__meta">
+            <time class="p-archive-post__time"><?php the_time('Y.m.j'); ?></time>
+            <?php
+              // カテゴリーのデータを取得
+              $cat = get_the_category();
+              $cat = $cat[0];
+          ?>
+            <span class="c-tag p-archive-post__tag"></span>
+          </div>
+          <h3 class="p-archive-post__title"><?php the_title(); ?></h3>
+        </div>
+      </a>
+      <?php endwhile;?>
+      <?php else: ?>
+      <h3 class="p-archive-post__title">只今準備中でございます。</h3>
+      <?php endif;?>
+      <?php wp_reset_postdata(); ?>
+    </div>
 
-  <!-- ページナビ -->
-  <div class="l-pager">
-    <?php 
+    <!-- ページナビ -->
+    <div class="l-pager">
+      <?php 
           $GLOBALS['wp_query']->max_num_pages = $the_query->max_num_pages;
 
             $args = array(
@@ -42,10 +50,11 @@
           ); 
           the_posts_pagination( $args );
           ?>
+    </div>
+    <div class="p-top-blog__link">
+      <a class="" href="<?php bloginfo('url'); ?>/">Topへ戻る</a>
+    </div>
+    <?php get_template_part('includes/pagenavi'); ?>
   </div>
-  <div class="p-top-blog__link">
-    <a class="" href="<?php bloginfo('url'); ?>/">Topへ戻る</a>
-  </div>
-  <?php get_template_part('includes/pagenavi'); ?>
 </div>
 <?php get_footer(); ?>
