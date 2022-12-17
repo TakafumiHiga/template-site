@@ -11,7 +11,7 @@
         <?php while (have_posts()) : the_post(); ?>
         <!-- アイキャッチ画像があるとき -->
         <?php if (has_post_thumbnail()) : ?>
-        <time class="p-single-post__time p-post-time"><?php the_time('Y.m.j'); ?></time>
+        <time class="p-single-post__time p-post-time"><?php echo get_the_time('Y.m.j'); ?></time>
         <figure class="p-single-post__img">
           <?php
               if(has_post_thumbnail()):?>

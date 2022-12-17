@@ -1,0 +1,6 @@
+@use 'global' as *;
+
+.p-menu-swiper__button-next img,
+.p-menu-swiper__button-prev img {
+  width: rem(20);
+}

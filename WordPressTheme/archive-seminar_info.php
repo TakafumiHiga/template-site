@@ -6,19 +6,19 @@
     <?php
      $today = date('Ymd'); // dateで現在の日時を取得
       $paged = get_query_var('paged')? get_query_var('page') : 1;
-      $args = array(
+      $args = [
         'post_type' => 'seminar_info',
         'orderby' => 'post_date',
         'posts_per_page' => 2,
         'paged' => $paged,           //ページ送り
-        'meta_query' => array(
-          array(
+        'meta_query' => [
+          [
             'key'     => 'seminar_period', // ACFで所得する公開日
             'value'   => $today,
             'compare' => '>=', // value(今日)とkey(公開日）を比較して未来の場合のみ表示
-          ),
-        )
-      ); 
+          ],
+        ],
+        ]; 
       $the_query = new WP_Query($args); ?>
 
     <?php if ( $the_query->have_posts() ): ?>
@@ -32,7 +32,7 @@
         </figure>
         <div class="p-post-item__meta">
           <div class="d-flex">
-            <div class="date"><?php the_time('Y.m.j'); ?></div>
+            <div class="date"><?php echo get_the_time('Y.m.j'); ?></div>
             <label><?php
                   $term = get_the_terms($post->ID,'seminar_genru');
                   echo $term[0]->name;

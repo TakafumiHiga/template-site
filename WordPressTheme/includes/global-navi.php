@@ -5,11 +5,16 @@
   <nav class="p-header__menu l-global-menu p-global-menu">
 
     <!-- トップページのロゴ -->
+    <?php if ( is_front_page() || is_home()) : ?>
+    <h1><a href="<?php echo esc_url(home_url('/')); ?>" class="p-global-menu__logo">
+        <img class="c-logo" src="<?php echo esc_url(get_theme_file_uri('/assets/images/common/logo.svg')); ?>"
+          alt="ロゴ" /></a></h1>
+    <?php else: ?>
     <a href="<?php echo esc_url(home_url('/')); ?>" class="p-global-menu__logo">
       <img class="c-logo" src="<?php echo esc_url(get_theme_file_uri('/assets/images/common/logo.svg')); ?>"
         alt="ロゴ" /></a>
 
-
+    <?php endif; ?>
     <div class="p-global-menu__pc">
       <?php 
         wp_nav_menu(array(

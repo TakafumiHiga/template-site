@@ -102,4 +102,104 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("js-body").classList.toggle("active");
     document.getElementById("js-mask").classList.toggle("active");
   });
+}); // top-swiper
+
+var topSwiper = new Swiper(".js-mv-swiper", {
+  loop: true,
+  spaceBetween: 30,
+  centeredSlides: true,
+  autoplay: {
+    delay: 2500,
+    disableOnInteraction: false
+  },
+  effect: "fade",
+  speed: 2000,
+  pagination: {
+    el: ".js-top-pagination",
+    clickable: true
+  },
+  navigation: {
+    nextEl: ".js-top-swiper-button-next",
+    prevEl: ".js-top-swiper-button-prev"
+  }
+}); // menu-swiper1
+
+var menuSwiper = new Swiper(".js-menu-swiper1", {
+  loop: true,
+  spaceBetween: 30,
+  centeredSlides: true,
+  // autoplay: {
+  //   delay: 2500,
+  //   disableOnInteraction: false,
+  // },
+  // effect: "fade",
+  speed: 2000,
+  pagination: {
+    el: ".js-menu-pagination",
+    clickable: true
+  },
+  navigation: {
+    nextEl: ".js-menu-swiper-button-next1",
+    prevEl: ".js-menu-swiper-button-prev1"
+  },
+  slidesPerView: 1,
+  breakpoints: {
+    // 768px以上の場合
+    768: {
+      slidesPerView: 3
+    }
+  }
+}); // menu-swiper-b
+
+var menuSwiper = new Swiper(".js-menu-swiper2", {
+  loop: true,
+  spaceBetween: 30,
+  centeredSlides: true,
+  // autoplay: {
+  //   delay: 2500,
+  //   disableOnInteraction: false,
+  // },
+  // effect: "fade",
+  speed: 2000,
+  pagination: {
+    el: ".js-menu-pagination",
+    clickable: true
+  },
+  navigation: {
+    nextEl: ".js-menu-swiper-button-next2",
+    prevEl: ".js-menu-swiper-button-prev2"
+  },
+  slidesPerView: 1,
+  breakpoints: {
+    // 768px以上の場合
+    768: {
+      slidesPerView: 3
+    }
+  }
+});
+var menuSwiper = new Swiper(".js-menu-swiper3", {
+  loop: true,
+  spaceBetween: 30,
+  centeredSlides: true,
+  // autoplay: {
+  //   delay: 2500,
+  //   disableOnInteraction: false,
+  // },
+  // effect: "fade",
+  speed: 2000,
+  pagination: {
+    el: ".js-menu-pagination",
+    clickable: true
+  },
+  navigation: {
+    nextEl: ".js-menu-swiper-button-next3",
+    prevEl: ".js-menu-swiper-button-prev3"
+  },
+  slidesPerView: 1,
+  breakpoints: {
+    // 768px以上の場合
+    768: {
+      slidesPerView: 3
+    }
+  }
 });

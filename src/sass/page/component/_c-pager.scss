@@ -1,4 +1,47 @@
 @use 'global' as *;
+/* ページネーション */
+
+.p-archive-post__preparation {
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 20vh;
+  margin-bottom: 20vh;
+  color: #1958BC;
+}
+
+.p-archive-pagenation {
+  text-align: center;
+  margin-top: auto;
+  margin-bottom: 60px;
+	padding-top:80px;
+}
+
+.p-archive-pagenation__btn {
+  color: #1958BC;
+  display: inline-block;
+  margin: 0 auto;
+  transition: all .3s;
+  border: solid 1px transparent;
+  padding: 10px 30px 10px 25px;
+  text-align: center;
+  width: 100%;
+  max-width: 220px;
+  background-image: url(../img/arrow-btn-blue.svg);
+  background-position: 94% center;
+  background-repeat: no-repeat;
+  background-size: 8px;
+}
+
+.p-archive-pagenation__btn:hover {
+  border: solid 1px #ffff;
+  background-color:#1958BC;
+  color: #ffff;
+  background-image: url(../img/arrow-btn.svg);
+}
+
+
+
 .prev-next {
   display: flex;
   justify-content: space-around;

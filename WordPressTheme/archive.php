@@ -6,7 +6,6 @@
       <?php if (have_posts()): ?>
       <?php while (have_posts()): the_post(); ?>
       <a class="p-archive-post" href="<?php the_permalink(); ?>">
-
         <figure class="p-archive-post__img">
           <?php
           if(has_post_thumbnail()):
@@ -15,12 +14,12 @@
             ?>
           <img src="<?php echo esc_url(get_theme_file_uri('/')); ?>" alt="" />
           <?php 
-              endif;
-              ?>
+          endif;
+          ?>
         </figure>
         <div class="p-archive-post__body">
           <div class="p-archive-post__meta">
-            <time class="p-archive-post__time"><?php the_time('Y.m.j'); ?></time>
+            <time class="p-archive-post__time"><?php echo get_the_time('Y.m.j'); ?></time>
             <?php
               // カテゴリーのデータを取得
               $cat = get_the_category();

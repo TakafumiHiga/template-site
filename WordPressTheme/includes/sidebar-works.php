@@ -4,7 +4,7 @@
     <ul>
       <?php
           $cat_posts = get_posts(array(
-              'post_type' => 'column', // 投稿タイプ
+              'post_type' => 'works', // 投稿タイプ
               'posts_per_page' => 5, // 表示件数
               'orderby' => 'date', // 表示順の基準
               'order' => 'DESC' // 昇順・降順
@@ -24,14 +24,14 @@
   <section class="p-sidebar-menu">
     <h3>月別アーカイブ</h3>
     <ul>
-      <?php wp_get_archives( 'post_type=column&type=monthly&show_post_count=5' ); ?>
+      <?php wp_get_archives( 'post_type=works&type=monthly&show_post_count=5' ); ?>
     </ul>
   </section>
   <section class="p-sidebar-menu">
     <h3>カテゴリー</h3>
     <!-- カテゴリソートタグ -->
     <?php
-                    $taxonomies = 'column_cat';
+                    $taxonomies = 'works-cat';
                     $args = array(
                       'hide_empty'    => true, //投稿に紐づいていないタームは出力しない
                       'order' => 'ASC', //昇順

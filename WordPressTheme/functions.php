@@ -35,7 +35,7 @@ add_action( 'after_setup_theme', 'my_setup' );
 function my_script_init()
 {
 
-	wp_enqueue_style( 'swiper-js','https://unpkg.com/swiper/swiper-bundle.min.css', array(), '1.0.1', 'all' );
+	wp_enqueue_style( 'swiper-css','https://unpkg.com/swiper/swiper-bundle.min.css', array(), '1.0.1', 'all' );
 	wp_enqueue_style( 'my', get_template_directory_uri() . '/assets/css/styles.css', array('swiper-js'), '1.0.1', 'all' );
 	
 	wp_enqueue_script( 'swiper-js', 'https://unpkg.com/swiper/swiper-bundle.min.js', array('jquery'), '1.0.1', true );
@@ -76,19 +76,19 @@ function my_menu_init() {
  *
  * @codex http://wpdocs.osdn.jp/%E9%96%A2%E6%95%B0%E3%83%AA%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9/register_sidebar
  */
-// function my_widget_init() {
-// 	register_sidebar(
-// 		array(
-// 			'name'          => 'サイドバー',
-// 			'id'            => 'sidebar',
-// 			'before_widget' => '<div id="%1$s" class="p-widget %2$s">',
-// 			'after_widget'  => '</div>',
-// 			'before_title'  => '<div class="p-widget__title">',
-// 			'after_title'   => '</div>',
-// 		)
-// 	);
-// }
-// add_action( 'widgets_init', 'my_widget_init' );
+function my_widget_init() {
+	register_sidebar(
+		array(
+			'name'          => 'サイドバー',
+			'id'            => 'sidebar',
+			'before_widget' => '<div id="%1$s" class="p-widget %2$s">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<div class="p-widget__title">',
+			'after_title'   => '</div>',
+		)
+	);
+}
+add_action( 'widgets_init', 'my_widget_init' );
 
 
 /**
@@ -262,3 +262,19 @@ function post_has_archive( $args, $post_type ) {
 	return $args;
 }
 add_filter( 'register_post_type_args', 'post_has_archive', 10, 2 );
+
+
+/* 固定ページ一覧にスラッグを追加する */
+function add_page_column_slug_title( $columns ) {
+	$columns[ 'slug' ] = "スラッグ";
+	return $columns;
+}
+function add_page_column_slug( $column_name, $post_id ) {
+	if( $column_name == 'slug' ) {
+		$post = get_post( $post_id );
+		$slug = $post->post_name;
+		echo esc_attr( $slug );
+	}
+}
+add_filter( 'manage_pages_columns', 'add_page_column_slug_title' );
+add_action( 'manage_pages_custom_column', 'add_page_column_slug', 10, 2 );

@@ -1,0 +1,51 @@
+@use 'global' as *;
+
+
+.p-mv-swiper {
+  width: 100%;
+  height: 80vh;
+  position: relative;
+}
+
+.p-mv-swiper__title {
+  position: absolute;
+  top: 46.5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  writing-mode: vertical-rl;
+  font-size: rem(32);
+  background-color: #FFFFFF54;
+  color:red;
+  border: solid 3px red;
+  padding: rem(53) rem(10) rem(40);
+  font-weight: $bold;
+  letter-spacing: 0.2em;
+  white-space: nowrap;
+  @include mq ('md'){
+    top: 52.5%;
+    font-size: rem(46);
+  }
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  // background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+  .p-mv-swiper__slide {
+    aspect-ratio: 47 / 100;
+    max-width: 100%;
+    width: 100%;
+}   

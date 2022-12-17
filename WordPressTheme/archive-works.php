@@ -5,8 +5,18 @@
       <div class="p-archive-posts">
 
         <!-- ループの開始 -->
-        <?php if (have_posts()): ?>
-        <?php while (have_posts()): the_post(); ?>
+        <?php
+      $paged = get_query_var('paged')? get_query_var('page') : 1;
+      $args = [
+        'post_type' => 'works',
+        'orderby' => 'post_date',
+        'posts_per_page' => 2,
+        'paged' => $paged, //ページ送り
+      ]; 
+      $the_query = new WP_Query($args); ?>
+
+        <?php if ( $the_query->have_posts() ): ?>
+        <?php while($the_query->have_posts()):$the_query->the_post(); ?>
         <a class="p-archive-post" href="<?php the_permalink(); ?>">
 
           <figure class="p-archive-post__img">
@@ -22,10 +32,11 @@
           </figure>
           <div class="p-archive-post__body">
             <div class="p-archive-post__meta">
+              <span class="c-tag p-archive-post__tag"><?php
+                    $term = get_the_terms($post->ID,'works-cat');
+                    echo $term[0]->name;
+                    ?></span>
               <time class="p-archive-post__time"><?php echo get_the_time('Y.m.j'); ?></time>
-
-              <span
-                class="c-tag p-archive-post__tag <?php $cat = get_the_category(); $cat = $cat[0]; { echo $cat->slug; } ?>"><?php $cat = get_the_category(); $cat = $cat[0]; { echo $cat->cat_name; }?></span>
             </div>
             <h3 class="p-archive-post__title"><?php the_title(); ?></h3>
           </div>
@@ -40,7 +51,7 @@
       <!-- ページナビ -->
       <div class="l-pager">
         <?php 
-          $GLOBALS['wp_query']->max_num_pages = $the_query->max_num_pages;
+         // $GLOBALS['wp_query']->max_num_pages = $the_query->max_num_pages;
 
             $args = array(
             'mid_size' => 2, 

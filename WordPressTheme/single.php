@@ -27,7 +27,7 @@
                 echo '<li class="p-single-post__tag c-card-category c-tag">'.$category->name.'</li>';
               }
               echo '</ul>';
-          ?><time class="p-archive-post__time"><?php the_time('Y.m.j'); ?></time>
+          ?><time class="p-archive-post__time"><?php echo get_the_time('Y.m.j'); ?></time>
           <h3 class="p-single-post__title"><?php the_title(); ?></h3>
           <div class="p-single-post__desc"><?php the_content();?></div>
         </div>

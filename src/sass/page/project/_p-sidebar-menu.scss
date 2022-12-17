@@ -1,0 +1,36 @@
+@use 'global' as *;
+
+/* サイドバー */
+
+.p-sidebar-menu {
+  margin-bottom: 40px;
+}
+
+.p-sidebar-menu ul {
+  padding: 0 10px 5px;
+}
+
+.p-sidebar-menu h3 {
+  color: #ffff;
+  font-size: 1.25em;
+  font-weight: 700;
+  line-height: 1.35;
+  background-color: #1958BC;
+  padding: 10px;
+}
+
+
+.p-sidebar-menu li {
+  font-size: 1em;
+  font-weight: normal;
+  line-height: 1.3125;
+  margin-top: 1em;
+  font-weight: 700;
+}
+
+.p-sidebar-menu li a {
+ transform: all .3s;
+}
+.p-sidebar-menu li a:hover {
+ opacity: .7;
+}
