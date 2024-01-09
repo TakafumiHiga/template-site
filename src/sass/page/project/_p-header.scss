@@ -1,0 +1,58 @@
+@use "global" as *;
+
+.p-header {
+  position: relative;
+  @include mq("md") {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+.p-header__cta {
+  display: none;
+  @include mq("md") {
+    text-align: right;
+    display: block;
+  }
+}
+
+.p-header__cta-tel-btn {
+  margin-right: rem(16);
+}
+
+.p-header__cta {
+  transition: all 0.3s ease-in-out;
+}
+
+.p-header__menu {
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+}
+
+.p-header__upper-wrap {
+  display: flex;
+  justify-content: space-between;
+}
+
+.p-header__cta.scrolling-active {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.p-header__menu.shadow {
+  box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: 2px 0 2px -1px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease;
+  background-color: #ffffff90;
+}
+
+.p-header__menu.sticky {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  padding-left: rem(20);
+  padding-right: rem(20);
+  z-index: 100;
+}

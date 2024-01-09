@@ -1,7 +1,6 @@
-@use 'global' as *;
+@use "global" as *;
 
-
-.p-drower {
+.c-drower {
   opacity: 0;
   //ドロワーの出てくるところが左指定
   visibility: hidden;
@@ -18,27 +17,30 @@
   height: 100vh;
   margin: 0 calc(50% - 50vw);
   width: 100vw;
+  @include mq("md") {
+    display: none;
+  }
 }
-.p-drower__items {
+.c-drower__items {
   padding: rem(120) rem(60) rem(50);
 }
 
-.p-drower__item:not(:last-child) {
+.c-drower__item:not(:last-child) {
   padding-bottom: rem(40);
   @include mq("md") {
     padding-bottom: rem(60);
   }
 }
 
-.p-drower__item a {
+.c-drower__item a {
   font-weight: $bold;
   display: block;
   transition: all 0.3s;
   position: relative;
 }
 
-.p-drower__item a::before {
-  content: '';
+.c-drower__item a::before {
+  content: "";
   background-image: url(../../assets/images/common/section-heading.svg);
   background-repeat: no-repeat;
   display: inline-block;
@@ -47,40 +49,46 @@
   height: 14px;
 }
 
-.p-drower__item a:hover {
+.c-drower__item a:hover {
   text-decoration: underline red;
 }
 
-.p-drower.active {
+.c-drower.open {
   opacity: 1;
   visibility: visible;
   transform: translateX(0%);
 }
 
-.c-header__mask {
+// .c-header__mask {
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   z-index: 1;
+//   width: 100vw;
+//   height: 100%;
+//   background-color: white;
+//   opacity: 0;
+//   visibility: hidden;
+//   transition: 0.3s;
+// }
+
+// .c-header__mask.active {
+//   opacity: 1;
+//   visibility: visible;
+// }
+
+// .c-global-navi__bottom {
+//   text-align: center;
+// }
+
+// .c-global-navi__btn__wrapper {
+//   width: 100%;
+//   max-width: rem(345);
+//   margin: 0 auto;
+// }
+
+body.is-fixed {
   position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  width: 100vw;
-  height: 100%;
-  background-color: white;
-  opacity: 0;
-  visibility: hidden;
-  transition: 0.3s;
-}
-
-.c-header__mask.active {
-  opacity: 1;
-  visibility: visible;
-}
-
-.c-global-navi__bottom {
-  text-align: center;
-}
-
-.c-global-navi__btn__wrapper {
   width: 100%;
-  max-width: rem(345);
-  margin: 0 auto;
+  height: 100%;
 }

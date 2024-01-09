@@ -1,103 +1,80 @@
-@use 'global' as *;
+@use "global" as *;
 
 .p-global-menu-items {
   display: flex;
   flex-direction: column;
-}
-
-@include mq ('md'){
-  .p-global-menu-items {
-    display: flex;
+  @include mq("md") {
+    // display: block;
     flex-direction: row;
-    justify-content: space-between;
   }
 }
 
-// ドロップダウンメニュー　グローバルメニューのliのみに指定（無効：drower、footer）
-
-.p-global-menu-items .menu-item-has-children {
-  // 起点
-  position: relative;
-  transition: all .3s;
-  cursor: pointer;
+.p-global-menu-item {
+  border-top: solid 1px gray;
+  @include mq("md") {
+    border-top: initial;
+  }
 }
 
-.p-global-menu-items .menu-item-has-children a:hover {
-  opacity: .7;
+.p-global-menu-item:last-child {
+  border-bottom: solid 1px gray;
+  @include mq("md") {
+    border-bottom: initial;
+  }
 }
 
-
-// 子メニューをもつliタグに矢印を指定
-
-.p-global-menu-items .menu-item-has-children::before {
-  content:"";
-  position: absolute;
-  background-image: url(../../assets/images/common/arrow-to-bottom.svg);
-  width: rem(10);
-  height: rem(6);
-  background-position: center center;
-  background-repeat: no-repeat;
-  display: inline-block;
-  background-size: contain;
-  top: 50%;
-  right: 8%;
-  transform: translateY(-50%) rotate(360deg);
-  transition: all .3s ease;
+/* 修正：sub-menuの最後のliにはこのスタイルを適用しない */
+.sub-menu .p-global-menu-item:last-child {
+  border-bottom: none;
 }
 
-
-// 子メニューのulを非表示。diplayを使わないのでふわっとする
-
-.p-global-menu-items .menu-item-has-children > .sub-menu {
-  position: absolute;
-  transition: all .3s ease;
-  top: 120%;
-  left: 0;
-  width: 100%;
-  z-index: 4;
-  visibility: hidden;
-  opacity: 0;
-  transform: scaleY(0);
-  transform-origin: center top;
-  border-radius: 3px;
-  background-color: #F7F2ED;
-  text-align: left;
-}
-
-.p-global-menu-items .sub-menu > li {
-  padding-top: rem(15);
-  padding-bottom: rem(15);
-  padding-left: rem(38);
-}
-
-
-.p-global-menu-items .sub-menu > li a {
+.p-global-menu-item__link {
+  padding: rem(12);
+  font-weight: $bold;
   display: block;
+}
+
+/* 子メニューを非表示にする */
+.sub-menu {
+  display: none;
+  @include mq("md") {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.5s ease-out;
+  }
+}
+
+.sub-menu.open {
+  @include mq("md") {
+    max-height: rem(
+      100
+    ); /* これは大まかな値で、サブメニューの最大高さを想定しています。実際の高さに応じて調整してください */
+  }
+}
+
+.menu-item-has-children > .p-global-menu-item__link {
+  display: flex;
+  justify-content: space-between;
+}
+
+.submenu-toggle {
+  padding: rem(15);
+  color: white;
+  font-size: rem(20);
+  background: gray;
   position: relative;
 }
-
-.p-global-menu-items .sub-menu > li a:hover {
-  opacity: .7;
-}
-
-// 子メニューのあしらい矢印
-.p-global-menu-items .sub-menu > li a::before {
-  content: '';
-  background-image: url(../../assets/images/common/menu-boder.svg);
-  background-repeat: no-repeat;
-  display: inline-block;
-  background-size: contain;
-  width: rem(14);
-  height: 1px;
+.submenu-toggle::before {
+  /* 閉じている時 */
+  content: "＋";
   position: absolute;
   top: 50%;
-  left: -13%;
-  transform: translateY(-50%);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: navy;
 }
-
-.p-global-menu-items .menu-item-has-children:hover > .sub-menu,
-.p-global-menu-items .menu-item-has-children:hover > .sub-menu > li {
-  visibility: visible;
-  opacity: 1;
-  transform: scaleY(1);
- }
+.submenu-toggle.active::before {
+  /* 開いている時 */
+  content: "－";
+  color: navy;
+}

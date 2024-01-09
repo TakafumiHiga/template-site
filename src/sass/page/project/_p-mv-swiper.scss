@@ -1,5 +1,4 @@
-@use 'global' as *;
-
+@use "global" as *;
 
 .p-mv-swiper {
   width: 100%;
@@ -13,16 +12,16 @@
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 10;
-  writing-mode: vertical-rl;
+  // writing-mode: vertical-rl;
   font-size: rem(32);
-  background-color: #FFFFFF54;
-  color:red;
+  background-color: #ffffff54;
+  color: red;
   border: solid 3px red;
   padding: rem(53) rem(10) rem(40);
   font-weight: $bold;
   letter-spacing: 0.2em;
-  white-space: nowrap;
-  @include mq ('md'){
+  // white-space: nowrap;
+  @include mq("md") {
     top: 52.5%;
     font-size: rem(46);
   }
@@ -44,8 +43,8 @@
   object-fit: cover;
 }
 
-  .p-mv-swiper__slide {
-    aspect-ratio: 47 / 100;
-    max-width: 100%;
-    width: 100%;
-}   
+.p-mv-swiper__slide {
+  aspect-ratio: 47 / 100;
+  max-width: 100%;
+  width: 100%;
+}
