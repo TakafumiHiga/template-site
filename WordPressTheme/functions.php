@@ -34,9 +34,9 @@ add_action( 'after_setup_theme', 'my_setup' );
  */
 function my_script_init()
 {
-
+	wp_enqueue_style( 'my_style', get_template_directory_uri() . '/assets/css/styles.css', array(), '1.0.1', 'all' );
 	wp_enqueue_style( 'swiper-css','https://unpkg.com/swiper/swiper-bundle.min.css', array(), '1.0.1', 'all' );
-	wp_enqueue_style( 'my', get_template_directory_uri() . '/assets/css/styles.css', array('swiper-js'), '1.0.1', 'all' );
+	// wp_enqueue_style( 'my', get_template_directory_uri() . '/assets/css/styles.css', array('swiper-js'), '1.0.1', 'all' );
 	
 	wp_enqueue_script( 'swiper-js', 'https://unpkg.com/swiper/swiper-bundle.min.js', array('jquery'), '1.0.1', true );
 	wp_enqueue_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js', array( 'jquery' ), '1.0.1', true );
@@ -164,15 +164,6 @@ function pagename_class($classes = ''){
 }
 add_filter('body_class', 'pagename_class');
 
-// wp_nav_menuのaにclass追加
-// function add_additional_class_on_a($classes, $item, $args)
-// {
-//   if (isset($args->add_li_class)) {
-//     $classes['class'] = $args->add_a_class;
-//   }
-//   return $classes;
-// }
-// add_filter('nav_menu_link_attributes', 'add_additional_class_on_a', 1, 3);
 
 // wp_nav_menuのliにclass追加
 function add_additional_class_on_li($classes, $item, $args)
@@ -183,6 +174,26 @@ function add_additional_class_on_li($classes, $item, $args)
   return $classes;
 }
 add_filter('nav_menu_css_class', 'add_additional_class_on_li', 1, 3);
+
+// wp_nav_menuのaにclass追加
+function add_additional_class_on_links($atts, $item, $args) {
+  if (isset($args->add_a_class)) {
+    $atts['class'] = $args->add_a_class;
+  }
+  return $atts;
+}
+add_filter('nav_menu_link_attributes', 'add_additional_class_on_links', 1, 3);
+
+// 子メニュー時にトグルを付与
+function add_submenu_toggle($items) {
+	foreach ($items as $item) {
+			if (in_array('menu-item-has-children', $item->classes)) {
+					$item->title .= '<span class="submenu-toggle"></span>';
+			}
+	}
+	return $items;
+}
+add_filter('wp_nav_menu_objects', 'add_submenu_toggle');
 
 
 //MW WPFrom に　readonly 属性を追加
@@ -198,7 +209,6 @@ function my_mwform_input_shortcode_tag( $output, $tag, $attr ) {
 	}
 	return $output;
 }
-
 add_filter( 'do_shortcode_tag', 'my_mwform_input_shortcode_tag', 10, 3 );
 
 // カスタム投稿追加　セミナー
@@ -278,3 +288,21 @@ function add_page_column_slug( $column_name, $post_id ) {
 }
 add_filter( 'manage_pages_columns', 'add_page_column_slug_title' );
 add_action( 'manage_pages_custom_column', 'add_page_column_slug', 10, 2 );
+
+/************************************************
+ * YubinBangoライブラリ
+ */
+wp_enqueue_script( 'yubinbango', 'https://yubinbango.github.io/yubinbango/yubinbango.js', array(), null, true );
+
+
+
+/**********************************************
+* スラッグ名が日本語だったら自動的に投稿タイプ＋id付与へ変更（スラッグを設定した場合は適用しない）
+*/
+function auto_post_slug( $slug, $post_ID, $post_status, $post_type ) {
+	if ( preg_match( '/(%[0-9a-f]{2})+/', $slug ) ) {
+			$slug = utf8_uri_encode( $post_type ) . '-' . $post_ID;
+	}
+	return $slug;
+}
+add_filter( 'wp_unique_post_slug', 'auto_post_slug', 10, 4  );

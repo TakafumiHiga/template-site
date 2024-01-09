@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<div class="l-inner">
+<div class="inner">
   <h2>トップページ</h2>
 </div>
 
