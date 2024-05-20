@@ -6,14 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="format-detection" content="telephone=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <!-- ogp -->
+  <!-- ogp プラグインで実装する場合は削除-->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="テンプレート | サイト" />
   <meta property="og:url" content="https://www.template.gomasio-test.top/" />
   <meta property="og:image" content="<?php echo esc_url(get_theme_file_uri('./assets/images/common/WP_OGP.jpg')); ?>" />
   <meta property="og:site_name" content="沖縄のホームページ制作 | つむぎCODE" />
   <meta property="og:description" content="沖縄のホームページ制作、デザインからコーディングまで一括して対応いたします" />
-  <!-- favicon -->
+  <!-- favicon プラグインで実装する場合は削除-->
   <link rel="shortcut icon" href="<?php echo esc_url(get_theme_file_uri('./assets/images/common/favicon.ico')); ?>" />
   <link rel="apple-touch-icon"
     href="<?php echo esc_url(get_theme_file_uri('./assets/images/common/apple-touch-icon-152x152.png')); ?>" />
@@ -30,20 +30,15 @@
 <body <?php body_class(); ?>>
   <?php wp_body_open(); ?>
   <header class="l-header">
-    <?php get_template_part('includes/global-navi') ?>
-    <?php
-if ( is_front_page()) :
-    get_template_part('includes/kv-slider');
-elseif ( is_home() ) :
-    get_template_part('includes/lower-post-type-mv');
-      get_template_part('includes/breadcrumbs');
-elseif ( is_page() ) :
-    get_template_part('includes/lower-mv');
-    get_template_part('includes/breadcrumbs');
-else:
-    get_template_part('includes/lower-post-type-mv');
-    get_template_part('includes/breadcrumbs');
-endif;
-?>
+    <?php get_template_part('includes/global-navi');
+  //メインビジュアルのトップと下層ページで分岐
+  if ( is_front_page()) :
+      get_template_part('includes/kv-slider');
+  elseif ( is_page() ) :
+      get_template_part('includes/lower-mv');
+  else:
+      get_template_part('includes/post-type-header');
+  endif;?>
+    <?php get_template_part('includes/breadcrumbs');?>
   </header>
   <main class="l-main">

@@ -1,36 +1,34 @@
-@use 'global' as *;
+@use "global" as *;
 
 /* サイドバー */
-
 .p-sidebar-menu {
-  margin-bottom: 40px;
+  margin-bottom: rem(40);
 }
 
 .p-sidebar-menu ul {
-  padding: 0 10px 5px;
+  padding: 0 rem(10) rem(5);
 }
 
 .p-sidebar-menu h3 {
-  color: #ffff;
+  color: $c-white;
   font-size: 1.25em;
-  font-weight: 700;
+  font-weight: $bold;
   line-height: 1.35;
-  background-color: #1958BC;
-  padding: 10px;
+  background-color: $c-black;
+  padding: rem(10);
 }
-
 
 .p-sidebar-menu li {
   font-size: 1em;
   font-weight: normal;
   line-height: 1.3125;
   margin-top: 1em;
-  font-weight: 700;
+  font-weight: $bold;
 }
 
 .p-sidebar-menu li a {
- transform: all .3s;
+  transform: all 0.3s;
 }
 .p-sidebar-menu li a:hover {
- opacity: .7;
+  opacity: 0.7;
 }

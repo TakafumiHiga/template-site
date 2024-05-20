@@ -1,0 +1,6 @@
+@use "global" as *;
+.p-footer__items {
+  display: flex;
+  padding-top: 10px;
+  justify-content: space-around;
+}

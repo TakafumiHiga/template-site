@@ -1,0 +1,107 @@
+@use "global" as *;
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ページネーションの余白 */
+.swiper-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal,
+.swiper-pagination-custom,
+.swiper-pagination-fraction {
+  top: -24px !important;
+  left: initial !important;
+  width: initial !important;
+  right: 0 !important;
+  @include mq("md") {
+    margin-right: clamp(4.625rem, 3.5441rem + 2.3121vw, 5.625rem);
+  }
+}
+
+/* ページネーションの余白 */
+.swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
+.swiper-pagination-horizontal.swiper-pagination-bullets
+  .swiper-pagination-bullet {
+  margin: 0 4px 4px !important;
+}
+
+/* ページネーションのサイズと色 */
+.swiper-pagination-bullet {
+  background-color: #acacac !important;
+  height: 4px !important;
+  width: 10px !important;
+  border-radius: initial !important;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #0c009b !important;
+}
+
+/* 画像サイズ調整 */
+.swiper-slide img {
+  height: auto;
+  width: 100%;
+}
+
+.p-case {
+  position: relative;
+  max-width: rem(984);
+  margin: auto;
+}
+
+.p-case__client-name {
+  font-weight: $bold;
+  font-size: rem(18);
+  line-height: 2.6666;
+  text-align: left;
+  @include mq("md") {
+    font-size: rem(24);
+  }
+}
+
+.p-case__swiper {
+  max-width: rem(800);
+}
+
+/* 前へ次への矢印カスタマイズ */
+.swiper-button-prev.p-case__swiper-prev,
+.swiper-button-next.p-case__swiper-next {
+  display: none;
+  @include mq("md") {
+    height: rem(60);
+    width: rem(60);
+    display: block;
+  }
+}
+/* 前へ次への矢印カスタマイズ */
+.p-case__swiper-prev::after,
+.p-case__swiper-next::after {
+  display: none;
+  @include mq("md") {
+    display: block;
+    background-repeat: no-repeat;
+    background-size: contain;
+    content: "";
+    height: rem(60);
+    margin: auto;
+    width: rem(60);
+  }
+}
+/* 前への矢印カスタマイズ */
+.p-case__swiper-prev::after {
+  @include mq("md") {
+    background-image: url("../../assets/images/common/swiper_btn_prev.svg");
+  }
+}
+/* 次への矢印カスタマイズ */
+.p-case__swiper-next::after {
+  @include mq("md") {
+    background-image: url("../../assets/images/common/swiper_btn_next.svg");
+  }
+}

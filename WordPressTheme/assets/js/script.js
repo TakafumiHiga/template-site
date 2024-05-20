@@ -64,40 +64,40 @@ jQuery(function ($) {
     $(".submenu-toggle").on("click", function (event) {
       event.preventDefault();
       event.stopPropagation();
-
-      // クリックしたsubmenu-toggleの親のli要素の中で.sub-menuを探してslideToggleとtoggleClassを適用
       var submenu = $(this).closest("li").find(".sub-menu");
       submenu.slideToggle(300);
       submenu.toggleClass("open");
+      // submenu-toggleに.activeクラスを付与する
+      $(this).toggleClass("active");
     });
   });
-});
 
-$(document).ready(function () {
-  var shadowTimeout;
-  var headerHeight = $(".p-header__menu").height(); // ヘッダー要素の高さを取得
+  $(document).ready(function () {
+    var shadowTimeout;
+    var headerHeight = $(".p-header__menu").height(); // ヘッダー要素の高さを取得
 
-  $(window).on("scroll", function () {
-    // スクロール位置がヘッダーの高さ以上か、ページのトップに戻ったかを判断
-    var windowPosition = $(this).scrollTop() > headerHeight;
+    $(window).on("scroll", function () {
+      // スクロール位置がヘッダーの高さ以上か、ページのトップに戻ったかを判断
+      var windowPosition = $(this).scrollTop() > headerHeight;
 
-    // スクロール位置に応じて、ヘッダーメニューに影をつけるクラスを切り替え
-    $(".p-header__menu").toggleClass("shadow", windowPosition);
+      // スクロール位置に応じて、ヘッダーメニューに影をつけるクラスを切り替え
+      $(".p-header__menu").toggleClass("shadow", windowPosition);
 
-    // スクロール位置に応じて、CTAの表示を切り替え
-    $(".p-header__cta").toggleClass("scrolling-active", windowPosition);
+      // スクロール位置に応じて、CTAの表示を切り替え
+      $(".p-header__cta").toggleClass("scrolling-active", windowPosition);
 
-    // スクロール位置に応じて、グローバルメニューの固定を切り替え
-    $(".p-global-menu").toggleClass("sticky", windowPosition);
+      // スクロール位置に応じて、グローバルメニューの固定を切り替え
+      $(".p-global-menu").toggleClass("sticky", windowPosition);
 
-    // タイマーが設定されていればクリアする
-    if (shadowTimeout) {
-      clearTimeout(shadowTimeout);
-    }
+      // タイマーが設定されていればクリアする
+      if (shadowTimeout) {
+        clearTimeout(shadowTimeout);
+      }
 
-    // スクロールが止まった際に影を消す
-    shadowTimeout = setTimeout(function () {
-      $(".p-header__menu").removeClass("shadow");
-    }, 2000);
+      // スクロールが止まった際に影を消す
+      shadowTimeout = setTimeout(function () {
+        $(".p-header__menu").removeClass("shadow");
+      }, 2000);
+    });
   });
 });

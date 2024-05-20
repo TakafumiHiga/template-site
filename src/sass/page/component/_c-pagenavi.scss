@@ -1,0 +1,65 @@
+@use "global" as *;
+.prev-next {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+}
+
+.pagination {
+  clear: both;
+  padding-left: 15px;
+  padding-bottom: 20px;
+}
+
+.nav-links {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.pagination .current {
+  padding: 0 8px;
+  padding: rem(6) rem(16);
+}
+
+.pagination .current {
+  background: #0c009b;
+  border: 1px solid #0c009b;
+  color: #fff;
+}
+
+.pagination .current {
+  display: inline-block;
+}
+
+.page-numbers,
+.pagination {
+  clear: both;
+  padding-left: 15px;
+  padding-bottom: 20px;
+}
+
+.page-numbers a,
+.page-numbers .current,
+.pagination a,
+.pagination .current {
+  display: inline-block;
+}
+
+.page-numbers a,
+.pagination a {
+  background: #fff;
+  border: 1px solid #0c009b;
+  color: #0c009b;
+  padding: rem(6) rem(16);
+  text-decoration: none;
+  -webkit-transition: all 0.25s linear;
+  -moz-transition: all 0.25s linear;
+  transition: all 0.25s linear;
+}
+
+.pagination a:hover,
+.pagination .current {
+  background: #0c009b;
+  border: 1px solid #0c009b;
+  color: #fff;
+}

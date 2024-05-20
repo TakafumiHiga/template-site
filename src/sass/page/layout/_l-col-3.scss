@@ -1,0 +1,10 @@
+@use "global" as *;
+
+.l-col-3 {
+  gap: 40px 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  @include mq("md") {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

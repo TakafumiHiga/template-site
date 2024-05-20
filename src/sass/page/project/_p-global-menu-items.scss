@@ -10,14 +10,14 @@
 }
 
 .p-global-menu-item {
-  border-top: solid 1px gray;
+  border-top: solid 1px $c-black;
   @include mq("md") {
     border-top: initial;
   }
 }
 
 .p-global-menu-item:last-child {
-  border-bottom: solid 1px gray;
+  border-bottom: solid 1px $c-black;
   @include mq("md") {
     border-bottom: initial;
   }
@@ -32,23 +32,30 @@
   padding: rem(12);
   font-weight: $bold;
   display: block;
+  transition: all 0.3s;
 }
 
 /* 子メニューを非表示にする */
 .sub-menu {
   display: none;
   @include mq("md") {
+    display: block;
     overflow: hidden;
     max-height: 0;
     transition: max-height 0.5s ease-out;
+    position: absolute;
+    z-index: 100;
+    width: 100%;
+    min-width: rem(200);
+    background-color: $c-white;
+    max-width: rem(200);
   }
 }
 
 .sub-menu.open {
   @include mq("md") {
-    max-height: rem(
-      100
-    ); /* これは大まかな値で、サブメニューの最大高さを想定しています。実際の高さに応じて調整してください */
+    max-height: rem(100);
+    /* これは大まかな値で、サブメニューの最大高さを想定しています。実際の高さに応じて調整してください */
   }
 }
 
@@ -59,22 +66,43 @@
 
 .submenu-toggle {
   padding: rem(15);
-  color: white;
+  color: $c-white;
   font-size: rem(20);
-  background: gray;
+  // background: $c-black;
   position: relative;
 }
 .submenu-toggle::before {
   /* 閉じている時 */
-  content: "＋";
+  content: "";
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: navy;
+  color: $c-white;
+  background-image: url("../../assets/images/common/icon_toggle_arrow.svg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  display: inline-block;
+  background-size: contain;
+  width: rem(16);
+  height: rem(16);
+  transition: all 0.3s;
 }
 .submenu-toggle.active::before {
-  /* 開いている時 */
-  content: "－";
-  color: navy;
+  transform: translate(-50%, -50%) scaleY(-1);
+}
+
+// PC時はホバーすると表示する
+.menu-item-has-children:hover .sub-menu {
+  @include mq("md") {
+    display: block;
+    overflow: visible;
+    max-height: rem(100);
+  }
+}
+
+.menu-item-has-children:hover .submenu-toggle::before {
+  @include mq("md") {
+    transform: translate(-50%, -50%) scaleY(-1);
+  }
 }

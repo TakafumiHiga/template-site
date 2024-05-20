@@ -1,8 +1,9 @@
 <div class="p-header inner">
-  <!-- マスク -->
+  <!-- マスク 不要時削除 -->
   <div class="p-global-menu__mask c-mask" id="js-mask"></div>
 
   <!--グローバルメニュー -->
+  <!--グローバルメニュー右上コンテンツ不要時削除 -->
   <div class="p-header__cta"><a class="c-btn c-cta-tel-btn p-header__cta-tel-btn"
       href="tel:090-4628-4768"><span>090-4628-4768</span></a><a class="c-cta-btn c-btn"
       href="<?php echo esc_url( home_url( '/contact' ) ); ?>"><span>お問い合わせ</span></a></div>
@@ -39,9 +40,13 @@
         <p class="c-hamburger__menu" id="js-hamburger__menu">MENU</p>
       </a>
     </div>
-    <!-- ハンバーガーメニューの中身 -->
-    <div id="js-drower" class="l-drower c-drower inner">
-      <?php 
+  </nav>
+</div>
+<!-- ハンバーガーメニューの中身 
+l-headerの外の出すことで影をつけることができる
+-->
+<div id="js-drower" class="l-drower c-drower inner">
+  <?php 
           wp_nav_menu(array(
           'theme_location' => 'global',
           'container' => 'div',
@@ -54,6 +59,4 @@
           'add_a_class' => 'p-global-menu-item__link' // aタグへclass追加
           ));
           ?>
-    </div>
-  </nav>
 </div>

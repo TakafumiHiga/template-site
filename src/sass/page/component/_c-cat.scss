@@ -1,0 +1,9 @@
+@use "global" as *;
+
+.c-cat {
+  background-color: $c-black;
+  color: $c-white;
+  padding: rem(4);
+  font-size: rem(12);
+  white-space: nowrap;
+}

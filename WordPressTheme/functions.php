@@ -30,17 +30,37 @@ add_action( 'after_setup_theme', 'my_setup' );
 /**
  * CSSとJavaScriptの読み込み
  *
- * @codex https://wpdocs.osdn.jp/%E3%83%8A%E3%83%93%E3%82%B2%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%83%A1%E3%83%8B%E3%83%A5%E3%83%BC
+ * https://developer.wordpress.org/reference/hooks/wp_enqueue_scripts/
+ * 
+ * wp_enqueue_style( $handle（※必須 固有名詞、読み込む順番のため）, $src（※必須 パス）, $deps（依存関係の指定、例：cssの読み込む順番の指定）, $ver（スタイルシートのバージョンを指定）, $media（※初期値allで記載不要） );
+ * 
+ * wp_enqueue_script( $handle, $src, $deps, $ver, $args );$handleと$srcだけでもOK
+ * 
  */
 function my_script_init()
 {
-	wp_enqueue_style( 'my_style', get_template_directory_uri() . '/assets/css/styles.css', array(), '1.0.1', 'all' );
-	wp_enqueue_style( 'swiper-css','https://unpkg.com/swiper/swiper-bundle.min.css', array(), '1.0.1', 'all' );
-	// wp_enqueue_style( 'my', get_template_directory_uri() . '/assets/css/styles.css', array('swiper-js'), '1.0.1', 'all' );
-	
-	wp_enqueue_script( 'swiper-js', 'https://unpkg.com/swiper/swiper-bundle.min.js', array('jquery'), '1.0.1', true );
-	wp_enqueue_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js', array( 'jquery' ), '1.0.1', true );
-	wp_enqueue_script( 'my', get_template_directory_uri() . '/assets/js/script.js', array( 'swiper-js','jquery' ), '1.0.1', true );
+// css
+wp_enqueue_style( 'my_style', get_template_directory_uri() . '/assets/css/styles.css', array(), '');
+
+//配列にして特定のページにだけにスタイルを読み込む
+if(is_page(array('contact', 'confirm', 'thanks'))) {
+	wp_enqueue_style('contact_style', get_template_directory_uri() . '/assets/css/form-reset.css', array(),'');
+}
+
+// Swiperのスタイルシートを追加
+wp_enqueue_style( 'swiper', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css', array(), '');
+
+// 外部からのjQueryを読み込む
+wp_enqueue_script( 'jquery-external', 'https://code.jquery.com/jquery-3.6.0.min.js', array(), '', true );
+
+// Swiperのスクリプトを追加
+wp_enqueue_script( 'swiper', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', array(), '10.0.0', true );
+
+//min.jsを使う場合はminに変更
+// 独自のスクリプト（'jquery-external'に依存）
+wp_enqueue_script( 'my_js', get_template_directory_uri() . '/assets/js/script.js', array(), '1.0.0', true );
+
+wp_enqueue_script( 'my_swiper_js', get_template_directory_uri() . '/assets/js/swiper.js', array(), '', true );
 
 }
 add_action('wp_enqueue_scripts', 'my_script_init');
@@ -184,82 +204,21 @@ function add_additional_class_on_links($atts, $item, $args) {
 }
 add_filter('nav_menu_link_attributes', 'add_additional_class_on_links', 1, 3);
 
-// 子メニュー時にトグルを付与
+/************************************************
+ * 子メニュー時にトグルを付与子メニュー時にトグルを付与
+ */
+
 function add_submenu_toggle($items) {
-	foreach ($items as $item) {
-			if (in_array('menu-item-has-children', $item->classes)) {
-					$item->title .= '<span class="submenu-toggle"></span>';
-			}
+	foreach ($items as &$item) {
+		if ($item->menu_item_parent == 0 && in_array('menu-item-has-children', $item->classes)) {
+			$item->title .= '<span class="submenu-toggle"></span>';
+		}
 	}
 	return $items;
 }
 add_filter('wp_nav_menu_objects', 'add_submenu_toggle');
 
 
-//MW WPFrom に　readonly 属性を追加
-function my_mwform_input_shortcode_tag( $output, $tag, $attr ) {
-	if ( $tag == 'mwform_text' && $attr['name'] == 'セミナー名' ) {
-		$output = str_replace( '<input ', '<input readonly ', $output );
-	}
-		if ( $tag == 'mwform_text' && $attr['name'] == '開催日時' ) {
-		$output = str_replace( '<input ', '<input readonly ', $output );
-	}
-		if ( $tag == 'mwform_text' && $attr['name'] == '講師名' ) {
-		$output = str_replace( '<input ', '<input readonly ', $output );
-	}
-	return $output;
-}
-add_filter( 'do_shortcode_tag', 'my_mwform_input_shortcode_tag', 10, 3 );
-
-// カスタム投稿追加　セミナー
-add_action('init', function(){
-  register_post_type('seminar_info',[
-    'label' => 'セミナー',
-    'public' => true,
-    'menu_position' => 10,
-    'has_archive' => true,
-    'hierarchical' => true,
-    'show_in_rest' =>true,
-    'supports' => ['thumbnail', 'title', 'editor','custom-fields'],
-  ]);
-    // カスタム分類を追加
-    register_taxonomy('seminar_genru', 'seminar_info', [
-      'label' => 'セミナーの種類',
-      'public'            => true,
-      'hierarchical'      => true,
-      'show_ui'           => true,
-      'query_var'         => true,
-      'rewrite'           => true,
-      'singular_label'    => '記事カテゴリ',
-      'show_in_rest'      => true, //追記
-      'show_admin_column' => true
-    ]);
-});
-
-// カスタム投稿を追加（制作事例）
-add_action('init', function(){
-  register_post_type('works',[
-    'label' => '制作事例',
-    'public' => true,
-    'menu_position' => 5,
-    'has_archive' => true,
-    'hierarchical' => true,
-    'show_in_rest' =>true,
-    'supports' => ['thumbnail', 'title', 'editor','custom-fields'],
-  ]);
-    // カスタム分類を追加
-    register_taxonomy('works-cat', 'works', [
-      'label' => '制作事例',
-      'public'            => true,
-      'hierarchical'      => true,
-      'show_ui'           => true,
-      'query_var'         => true,
-      'rewrite'           => true,
-      'singular_label'    => '記事カテゴリ',
-      'show_in_rest'      => true, //追記
-      'show_admin_column' => true
-    ]);
-});
 
 /* 投稿アーカイブを有効にしてスラッグを指定する */
 function post_has_archive( $args, $post_type ) {
@@ -267,7 +226,7 @@ function post_has_archive( $args, $post_type ) {
 	if ( 'post' == $post_type ) {
 			$args['rewrite'] = true;
 			$args['has_archive'] = ''; 
-			$args['label'] = 'ブログ';
+			$args['label'] = '投稿';
 	}
 	return $args;
 }
@@ -305,4 +264,13 @@ function auto_post_slug( $slug, $post_ID, $post_status, $post_type ) {
 	}
 	return $slug;
 }
-add_filter( 'wp_unique_post_slug', 'auto_post_slug', 10, 4  );
+add_filter( 'wp_unique_post_slug', 'auto_post_slug', 10, 4);
+
+
+/**********************************************
+* noindex付与
+*/
+//function post_type_noindex(){
+	//if(is_singular('inside') || is_post_type_archive('inside') || is_tax('inside_cat')){
+	//echo'<meta name="robots" content="noindex , nofollow" />';
+	//}}add_action('we_head', 'post_type_noindex');

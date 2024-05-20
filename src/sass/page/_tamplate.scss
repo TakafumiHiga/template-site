@@ -1,8 +1,8 @@
 @use "global" as *;
 
 .all-info {
-  background-color:#95a1a7;
-  color: $white;
+  background-color: #95a1a7;
+  color: $c-white;
   padding: rem(10);
 }
 
@@ -15,7 +15,6 @@
 }
 
 .inner-over {
-  margin:0 calc(50% - 50vw);
-  width:100vw;
+  margin: 0 calc(50% - 50vw);
+  width: 100vw;
 }
-

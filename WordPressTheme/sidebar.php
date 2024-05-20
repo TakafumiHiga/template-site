@@ -5,6 +5,9 @@
 <!-- PCサイズ -->
 <?php elseif (is_tax('seminar_genru')|| is_singular('seminar_info') || is_post_type_archive('voice')) : ?>
 <?php get_template_part('includes/sidebar-voice'); ?>
+<!-- PCサイズ -->
+<?php elseif (is_tax('case_cat')|| is_singular('case') || is_post_type_archive('case')) : ?>
+<?php get_template_part('includes/sidebar-case'); ?>
 
 <!-- PCサイズ -->
 <?php elseif (is_category('')|| is_single() || is_archive('post')) : ?>

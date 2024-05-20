@@ -1,14 +1,4 @@
-@use 'global' as *;
-
-
-.p-archive-posts {
-  gap: 40px 30px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  @include mq ('md'){
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
+@use "global" as *;
 
 .p-archive-post {
   display: block;
@@ -21,13 +11,12 @@
   margin-bottom: 10px;
 }
 
-
 .p-archive-post {
-  transition: all .3s;
+  transition: all 0.3s;
 }
 
 .p-archive-post:hover {
-  opacity: .7;
+  opacity: 0.7;
 }
 
 .p-archive-post__img img {
@@ -37,7 +26,6 @@
 }
 
 .p-archive-post__time {
-  color: #1958BC;
   margin-right: 10px;
 }
 
@@ -47,27 +35,13 @@
   align-items: center;
 }
 
-.c-tag {
-  border: solid 1px;
-  background-color: #1958BC;
-  color: #fff;
-  padding: 4px 8px;
-  border-radius: 10px;
-  font-size: 12px;
-  display: inline-block;
-}
-
 .p-archive-post__title {
-  color: #1958BC;
   font-size: 1.25em;
-  font-weight: bold;
   line-height: 1.35;
   margin-top: 10px;
 }
 
 .p-archive-post__desc {
-  font-size: 1em;
-  font-weight: normal;
   line-height: 1.3125;
   margin-top: 1em;
 }

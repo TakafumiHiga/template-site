@@ -20,89 +20,88 @@ jQuery(function ($) {
       scrollTop: 0
     }, 300, "swing");
     return false;
-  }); //ドロワーメニュー
+  }); // ハンバーガーメニュー
 
-  $("#MenuButton").click(function () {
-    // $(".l-drawer-menu").toggleClass("is-show");
-    // $(".p-drawer-menu").toggleClass("is-show");
-    $(".js-drawer-open").toggleClass("open");
-    $(".drawer-menu").toggleClass("open");
-    $("html").toggleClass("is-fixed");
-  }); // スムーススクロール (絶対パスのリンク先が現在のページであった場合でも作動)
-
-  $(document).on("click", 'a[href*="#"]', function () {
-    var time = 400;
-    var header = $("header").innerHeight();
-    var target = $(this.hash);
-    if (!target.length) return;
-    var targetY = target.offset().top - header;
-    $("html,body").animate({
-      scrollTop: targetY
-    }, time, "swing");
-    return false;
-  }); // アコーディオン
-
-  $(".acd").on("click", function () {
-    if (window.matchMedia("(max-width: 1239px)").matches) {
-      $(this).next(".acd__item").slideToggle();
-      $(this).toggleClass("open");
-    }
+  $("#js-hamburger").click(function () {
+    $("#js-drower").toggleClass("open");
+    $("body").toggleClass("is-fixed");
+    $("#js-hamburger").toggleClass("active"); // この行を再度追加
   });
-  $(window).on("resize", function () {
-    if (window.matchMedia("(min-width: 1240px)").matches) {
-      $(".children-nav").css("display", "flex");
-    } else if (window.matchMedia("(max-width: 1239px)").matches) {
-      $(".children-nav").css("display", "none");
-    }
-  }); // スムーズリンク
-
   $(document).on("click", 'a[href*="#"]', function () {
-    var time = 400;
-    var header = $("header").innerHeight();
+    var time = 100;
+    var header = $(".p-header").innerHeight();
     var target = $(this.hash);
-    if (!target.length) return;
-    var targetY = target.offset().top - header;
+    if (!target.length) return; // .p-headerの高さを取得
+
+    var pHeaderHeight = $(".p-header").outerHeight() || 0; // スクロール位置を計算する際に、.p-headerの高さを考慮に入れる
+
+    var targetY = target.offset().top - header - pHeaderHeight;
+    $("body").removeClass("is-fixed");
     $("html,body").animate({
       scrollTop: targetY
-    }, time, "swing");
+    }, time, "swing", function () {
+      $(".c-drower").removeClass("open");
+      $(".c-hamburger").removeClass("active");
+    });
     return false;
-  }); //ヘッダー固定(SP)
-  //fvを超えたらスクロールでheaderに色を付ける
-  //下層ページヘッダーを超えたらスクロールでheaderに色を付ける
+  });
+  $(function () {
+    $(".submenu-toggle").on("click", function (event) {
+      event.preventDefault();
+      event.stopPropagation(); // クリックしたsubmenu-toggleの親のli要素の中で.sub-menuを探してslideToggleとtoggleClassを適用
 
-  var mainPos = $(".fv").height();
-  var lowerPos = $(".p-lower-header").height();
-  var headerHight = $(".header").height();
-  $(window).scroll(function () {
-    if ($(window).scrollTop() > mainPos - headerHight) {
-      $(".header").addClass("js-headerColor");
-    } else if ($(window).scrollTop() > lowerPos - headerHight) {
-      $(".header").addClass("js-headerColor");
-    } else {
-      $(".header").removeClass("js-headerColor");
-    }
+      var submenu = $(this).closest("li").find(".sub-menu");
+      submenu.slideToggle(300);
+      submenu.toggleClass("open");
+    });
+  });
+});
+$(document).ready(function () {
+  var shadowTimeout;
+  var headerHeight = $(".p-header__menu").height(); // ヘッダー要素の高さを取得
+
+  $(window).on("scroll", function () {
+    // スクロール位置がヘッダーの高さ以上か、ページのトップに戻ったかを判断
+    var windowPosition = $(this).scrollTop() > headerHeight; // スクロール位置に応じて、ヘッダーメニューに影をつけるクラスを切り替え
+
+    $(".p-header__menu").toggleClass("shadow", windowPosition); // スクロール位置に応じて、CTAの表示を切り替え
+
+    $(".p-header__cta").toggleClass("scrolling-active", windowPosition); // スクロール位置に応じて、グローバルメニューの固定を切り替え
+
+    $(".p-global-menu").toggleClass("sticky", windowPosition); // タイマーが設定されていればクリアする
+
+    if (shadowTimeout) {
+      clearTimeout(shadowTimeout);
+    } // スクロールが止まった際に影を消す
+
+
+    shadowTimeout = setTimeout(function () {
+      $(".p-header__menu").removeClass("shadow");
+    }, 2000);
   });
 });
 /* -------ハンバーガーメニュー----------------- */
 
 /* -------------------------------- */
-
-document.addEventListener("DOMContentLoaded", function () {
-  document.getElementById("js-hamburger").addEventListener("click", function () {
-    this.classList.toggle("active");
-    document.getElementById("js-drower").classList.toggle("active");
-    document.getElementById("js-mask").classList.toggle("active");
-    document.getElementById("js-navi__menu").classList.toggle("active");
-    document.getElementById("js-body").classList.toggle("active");
-  });
-  document.getElementById("js-drower").addEventListener("click", function () {
-    this.classList.toggle("active");
-    document.getElementById("js-hamburger").classList.toggle("active");
-    document.getElementById("js-navi__menu").classList.toggle("active");
-    document.getElementById("js-body").classList.toggle("active");
-    document.getElementById("js-mask").classList.toggle("active");
-  });
-}); // top-swiper
+// document.addEventListener("DOMContentLoaded", function () {
+//   document
+//     .getElementById("js-hamburger")
+//     .addEventListener("click", function () {
+//       this.classList.toggle("active");
+//       document.getElementById("js-drower").classList.toggle("active");
+//       document.getElementById("js-mask").classList.toggle("active");
+//       document.getElementById("js-navi__menu").classList.toggle("active");
+//       document.getElementById("js-body").classList.toggle("active");
+//     });
+//   document.getElementById("js-drower").addEventListener("click", function () {
+//     this.classList.toggle("active");
+//     document.getElementById("js-hamburger").classList.toggle("active");
+//     document.getElementById("js-navi__menu").classList.toggle("active");
+//     document.getElementById("js-body").classList.toggle("active");
+//     document.getElementById("js-mask").classList.toggle("active");
+//   });
+// });
+// top-swiper
 
 var topSwiper = new Swiper(".js-mv-swiper", {
   loop: true,

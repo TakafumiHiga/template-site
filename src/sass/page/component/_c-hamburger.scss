@@ -4,7 +4,7 @@
 .c-hamburger {
   display: block;
   position: relative;
-  color: navy;
+  color: $c-black;
   z-index: 60;
   cursor: pointer;
   @include mq("md") {
@@ -21,7 +21,7 @@
   height: rem(1);
   width: rem(23);
   border-radius: 10px; /* 線幅の半分 */
-  background-color: navy;
+  background-color: $c-black;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -55,7 +55,6 @@
 .c-hamburger.active span:nth-of-type(3) {
   opacity: 0;
 }
-
 
 .c-hamburger__menu {
   font-size: rem(10);

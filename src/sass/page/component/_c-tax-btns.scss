@@ -1,0 +1,18 @@
+@use "global" as *;
+
+.c-tax-btns {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+.c-tax-btns a {
+  background-color: black;
+  color: white;
+  padding: 10px;
+}
+
+.c-tax-btns a.c-is-current {
+  background-color: white;
+  color: black;
+  border: solid 1px black;
+}

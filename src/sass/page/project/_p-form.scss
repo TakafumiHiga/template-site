@@ -1,0 +1,387 @@
+@use "global" as *;
+
+.p-form__bg {
+  background: lightgray;
+  padding-bottom: 45px;
+  @include mq("md") {
+    padding-bottom: 120px;
+  }
+}
+
+.p-form__items-bg {
+  background: #fff;
+  padding-bottom: 45px;
+  @include mq("md") {
+    padding-bottom: 120px;
+  }
+}
+
+.p-form__inner {
+  max-width: 760px;
+  padding: 30px 15px;
+  margin: 30px auto 0;
+  border-radius: 0;
+  width: 100%;
+  border-radius: 10px;
+  box-sizing: border-box;
+  text-align: left;
+  @include mq("md") {
+    padding: 50px 50px 60px;
+    margin: 40px auto 0;
+  }
+}
+
+.p-form__wrap {
+  max-width: 100%;
+  width: 100%;
+  margin: auto;
+  padding-top: 10px;
+  @include mq("md") {
+    width: 790px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 80px;
+  }
+}
+
+.p-form__thanks-wrap {
+  max-width: 100%;
+  width: 100%;
+  margin: auto;
+  padding: 10px 15px 0;
+  @include mq("md") {
+    width: 790px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 80px;
+  }
+}
+
+.p-form__item {
+  padding-top: 23px;
+  padding-bottom: 20px;
+  @include mq("md") {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+.p-form__item dt {
+  padding-bottom: 10px;
+}
+
+.p-form__item-example {
+  display: block;
+  font-size: 12px;
+  color: lightgray;
+  padding-left: 10px;
+}
+
+.p-form-item__border {
+  border-bottom: 1px solid;
+  border-top: 1px solid;
+}
+
+.p-form__text-wrap {
+  padding: rem(15) rem(15) 0 rem(15);
+}
+
+.p-form__caption {
+  font-size: rem(14);
+  line-height: 1.857142;
+  padding-bottom: 43px;
+}
+
+.p-form__page-title {
+  font-size: rem(26);
+  color: navy;
+  text-align: center;
+  letter-spacing: 0.02em;
+  font-weight: $bold;
+  line-height: 1.3894615;
+  margin-bottom: rem(20);
+  @include mq("md") {
+    font-size: rem(30);
+  }
+}
+
+.p-form__page-desc {
+  font-size: rem(14);
+  line-height: 1.875;
+  text-align: justify;
+  padding-left: 15px;
+  padding-right: 15px;
+  @include mq("md") {
+    font-size: rem(16);
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.p-form__page-desc-mail {
+  font-weight: 350;
+  color: navy;
+}
+
+.p-form__item-boder {
+  border-bottom: solid 1px #dce0e2;
+}
+
+.p-form__item-boder-top {
+  border-top: solid 1px #dce0e2;
+  padding-top: 20px;
+}
+
+.p-form__item-row {
+  display: flex;
+}
+
+.p-form__item-pc-row {
+  @include mq("md") {
+    display: flex;
+  }
+}
+
+.p-form__item-3col {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 23px;
+  margin-bottom: 10px;
+}
+
+.p-form__choice-day {
+  width: calc((100% - 60px) / 3);
+  max-width: 194px;
+}
+
+.p-form__choice-day-row {
+  @include mq("md") {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.p-form__item-input {
+  width: 100%;
+  max-width: 140px;
+}
+
+.p-form__item-checkbox {
+  padding-bottom: 23px;
+}
+
+.p-form__item-privacy-wrap {
+  @include mq("md") {
+    padding-left: 12px;
+  }
+}
+
+.p-form__item-privacy {
+  max-height: 140px;
+  overflow-y: scroll;
+  border: solid 1px #dce0e2;
+  padding: 20px;
+  border-radius: 3px;
+}
+
+.p-form__text-small {
+  font-size: 12px;
+}
+
+// CF7ボタンカスタマイズ
+.p-form__send-btn .next-btn {
+  width: 100%;
+  max-width: rem(345);
+  margin: 50px auto 0;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+  background: #fff;
+  transition: 0.5s;
+  display: block;
+  color: navy;
+  border-radius: rem(44);
+  text-align: center;
+  padding: rem(12);
+  font-size: rem(19);
+  font-weight: $bold;
+  transition: all 0.3s;
+  border: solid rem(2) navy;
+  background-color: white;
+  @include mq("md") {
+    max-width: rem(250);
+    min-width: rem(250);
+    margin: auto;
+  }
+}
+
+.p-form__send-btn .next-btn:hover {
+  @include mq("md") {
+    border: solid rem(2) green;
+    color: green;
+    opacity: initial;
+  }
+}
+
+.p-form__prev-btn,
+.p-form__return-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.p-form__prev-btn::before,
+.p-form__return-btn::before {
+  content: "";
+  display: block;
+  width: 9px;
+  height: 9px;
+  background: url(../../assets/images/form/icon_prev.svg) no-repeat;
+}
+
+.p-form__prev-btn input,
+.p-form__return-btn a {
+  display: block !important;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+  transition: all 0.3s;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 0;
+}
+
+.p-form__prev-btn input:hover,
+.p-form__return-btn a:hover {
+  color: green;
+}
+
+.p-form__item-time::placeholder {
+  color: #969696;
+}
+
+.choice-input {
+  padding: 5px 10px !important;
+  min-height: 30px;
+  color: inherit;
+}
+
+// Utility
+.u-text-align-center {
+  text-align: center;
+}
+
+.u-margin-bottom10 {
+  margin-bottom: 10px;
+}
+
+.u-margin-bottom30 {
+  margin-bottom: 30px;
+}
+
+.u-margin-bottom40 {
+  margin-bottom: 40px;
+}
+
+.u-margin-bottom80 {
+  margin-bottom: 80px;
+}
+
+.u-margin-left10 {
+  margin-left: 10px;
+}
+
+.u-margin-bottom20 {
+  margin-bottom: 20px;
+}
+
+.u-space-between-pc {
+  @include mq("md") {
+    justify-content: space-between;
+  }
+}
+
+.u-c-red {
+  color: #e50012;
+}
+
+/* 問い合わせステップ */
+.p-from__step03 {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.p-from__step03 ul {
+  position: relative;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  padding-left: 0;
+}
+
+.p-from__step03 ul li {
+  position: relative;
+  color: #333;
+  z-index: 1;
+}
+
+.p-from__step03 ul li::marker {
+  color: #fff;
+}
+
+.p-from__step03 ul li::before {
+  content: "";
+  display: block;
+  width: 15px;
+  height: 15px;
+  background: #ddd;
+  margin: 0 auto 0.5em;
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%;
+  border-radius: 100%;
+}
+
+.p-from__step03 ul li.active {
+  font-size: 16px;
+  color: #333;
+}
+
+.p-from__step03 ul li.active::before {
+  margin: -0.3em auto 0.5em;
+  background: #2888a3;
+  width: 25px;
+  height: 25px;
+}
+
+.p-from__step03 ul::before {
+  position: absolute;
+  z-index: 1;
+  width: 90%;
+  height: 1px;
+  background: #ddd;
+  content: "";
+  left: 50%;
+  top: 7px;
+  z-index: 0;
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+@media only screen and (max-width: 767px) {
+  .p-from__step03 {
+    width: 90%;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .p-from__step03 ul:before {
+    width: 85%;
+  }
+}
+
+.p-from__step03 ul li.active::before {
+  background: #3e87ac;
+}

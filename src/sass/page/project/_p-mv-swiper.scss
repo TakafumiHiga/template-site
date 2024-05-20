@@ -1,50 +1,81 @@
 @use "global" as *;
 
-.p-mv-swiper {
-  width: 100%;
-  height: 80vh;
+.p-mv {
   position: relative;
-}
-
-.p-mv-swiper__title {
-  position: absolute;
-  top: 46.5%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 10;
-  // writing-mode: vertical-rl;
-  font-size: rem(32);
-  background-color: #ffffff54;
-  color: red;
-  border: solid 3px red;
-  padding: rem(53) rem(10) rem(40);
-  font-weight: $bold;
-  letter-spacing: 0.2em;
-  // white-space: nowrap;
   @include mq("md") {
-    top: 52.5%;
-    font-size: rem(46);
+    display: flex;
+    flex-direction: row-reverse;
   }
 }
 
-.swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  // background: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.p-mv__logo {
+  max-width: 48.8vw;
+  width: 100%;
 }
 
-.swiper-slide img {
-  display: block;
+.p-mv__text {
+  font-weight: $bold;
+  font-size: rem(20);
+  font-size: clamp(1.25rem, 1.0739rem + 0.7512vw, 1.75rem);
+  line-height: 1.4;
+  color: white;
+  @include mq("md") {
+    line-height: 1.5;
+  }
+}
+
+.p-mv__text--small {
+  font-size: rem(16);
+  font-size: clamp(1rem, 0.89rem + 0.4695vw, 1.3125rem);
+}
+
+.p-mv__text--mid {
+  font-size: rem(18);
+  font-size: clamp(1.125rem, 0.9049rem + 0.939vw, 1.75rem);
+}
+
+.p-mv__text--highlight {
+  background: linear-gradient(transparent 93%, $c-black 50%);
+}
+
+.p-mv_catch-copy {
+  font-weight: $bold;
+  font-size: rem(18);
+  letter-spacing: 0.06em;
+  line-height: 1.2;
+  color: $c-white;
+  background-color: $c-black;
+  text-align: center;
+  padding: rem(13);
+  display: inline-block;
+  margin-top: rem(18);
+  @include mq("md") {
+    font-size: rem(40);
+    padding: rem(27) rem(14) rem(27) rem(30);
+    margin-top: rem(22);
+  }
+}
+
+.p-mv__text-wrap {
+  padding: rem(16) rem(16) rem(11);
+  width: 24%;
+  position: absolute;
+  top: 60%;
+  left: 28px;
+  width: 100%;
+  max-width: 90%;
+  z-index: 1;
+}
+
+.swiper-slide.p-mv__slider-img {
+  aspect-ratio: 1 / 2;
+  @include mq("md") {
+    aspect-ratio: 2 / 1;
+  }
+}
+
+.swiper-slide.p-mv__slider-img img {
+  object-fit: cover;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-}
-
-.p-mv-swiper__slide {
-  aspect-ratio: 47 / 100;
-  max-width: 100%;
-  width: 100%;
 }

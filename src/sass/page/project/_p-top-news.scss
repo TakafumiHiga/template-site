@@ -1,0 +1,31 @@
+@use "global" as *;
+
+.p-post-list {
+  color: $c-black;
+  padding-bottom: rem(4);
+  border-bottom: solid 1px $c-black;
+  @include mq("md") {
+    padding-bottom: rem(12);
+  }
+}
+
+.p-post-list:not(:last-child) {
+  margin-bottom: rem(8);
+  @include mq("md") {
+    margin-bottom: rem(18);
+  }
+}
+
+.p-post-list__link {
+  display: flex;
+  align-items: center;
+}
+
+.p-post-list__title {
+  font-size: rem(14);
+  font-weight: 500;
+  width: 100%;
+  @include mq("md") {
+    font-size: rem(16);
+  }
+}

@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 <!-- サイドバー付き、2カラム、画像があるないで条件分岐 -->
-<div class="l-inner">
+<div class="inner">
   <div class="l-flex">
     <main id="primary" class="site-main l-flex__main-contents">
 

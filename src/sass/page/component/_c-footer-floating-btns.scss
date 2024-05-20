@@ -1,0 +1,25 @@
+@use "global" as *;
+
+.c-footer-floating-btns {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: 50px;
+  display: flex;
+  column-gap: 4px;
+  background-color: white;
+  @include mq("md") {
+    display: none;
+  }
+}
+
+.c-footer-floating-btns a {
+  color: white;
+  text-align: center;
+  display: block;
+  padding: 10px;
+  width: 100%;
+  border: solid 1px white;
+  background-color: black;
+}
