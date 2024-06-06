@@ -1,9 +1,5 @@
 <?php get_header(); ?>
 <div class="l-inner">
-
-
-
-
   <section class="l-404">
     <h2 class="p-404__title">お探しのページが見つかりませんでした</h2>
 
@@ -20,8 +16,6 @@
       <a class="c-btn" href="/">お問い合わせをしたい</a>
       <a class="c-btn" href="/">お問い合わせをしたい</a>
     </div>
-
   </section>
-
 </div>
 <?php get_footer(); ?>

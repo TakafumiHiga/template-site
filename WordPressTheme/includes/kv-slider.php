@@ -1,14 +1,14 @@
 <section class="l-mv">
   <div class="p-mv">
-    <div class="p-mv__imgs swiper topSwiper">
+    <div class="p-mv__imgs swiper topSwiper swiper1">
       <div class="swiper-wrapper">
-        <div class="swiper-slide p-mv__slider-img">
+        <div class="swiper-slide p-mv__slider-img swiper-slide1">
           <img src="<?php echo esc_url(get_theme_file_uri('/assets/images/dummy/dummy1.jpg')); ?>" alt="">
         </div>
-        <div class="swiper-slide p-mv__slider-img">
+        <div class="swiper-slide p-mv__slider-img swiper-slide1">
           <img src="<?php echo esc_url(get_theme_file_uri('/assets/images/dummy/dummy2.jpg')); ?>" alt="">
         </div>
-        <div class="swiper-slide p-mv__slider-img">
+        <div class="swiper-slide p-mv__slider-img swiper-slide1">
           <img src="<?php echo esc_url(get_theme_file_uri('/assets/images/dummy/dummy3.jpg')); ?>" alt="">
         </div>
       </div>

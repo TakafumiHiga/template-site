@@ -57,12 +57,12 @@
           </div>
           <div class="p-top-works__img">
             <?php 
-        $pc_img_id = get_post_meta($post->ID , 'case_img_pc' ,true);
-        $sp_img_id = get_post_meta($post->ID , 'case_img_sp' ,true);
+              $pc_img_id = get_post_meta($post->ID , 'case_img_pc' ,true);
+              $sp_img_id = get_post_meta($post->ID , 'case_img_sp' ,true);
 
-        if ($pc_img_id) {
-          $pc_img = wp_get_attachment_image_src($pc_img_id, 'full');
-      ?>
+              if ($pc_img_id) {
+                $pc_img = wp_get_attachment_image_src($pc_img_id, 'full');
+            ?>
 
             <figure class="p-top-works__pc-img">
               <div class="p-top-works__pc-img-wrap">
