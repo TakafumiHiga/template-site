@@ -13,7 +13,10 @@
   <!-- ブロークングリッド -->
   <section class="l-about" id="about">
   </section>
+  <section class="l-staff" id="staff">
+    <?php get_template_part('includes/staff-swiper'); ?>
 
+  </section>
 
 </div>
 

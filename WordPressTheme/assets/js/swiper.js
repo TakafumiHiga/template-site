@@ -16,23 +16,30 @@ var topSwiper = new Swiper(".topSwiper", {
   },
 });
 
-var swiper = new Swiper(".clientsSwiper", {
-  spaceBetween: 30,
-  centeredSlides: true,
+//staff-swiper
+var staffSwiper = new Swiper(".js-staff-swiper", {
   loop: true,
+  spaceBetween: 5,
+  slidesPerView: 2.1,
+  centeredSlides: true,
   autoplay: {
-    delay: 5500,
+    delay: 2500,
     disableOnInteraction: false,
   },
-  autoplay: {
-    delay: 3000,
-  },
+  //effect: "fade",
+  speed: 2000,
   pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
+    el: ".swiper-pagination", // ページネーション要素のクラス
+    clickable: true, // クリックによるスライド切り替えを有効にする
+    //type: "bullets", // 'bullets'（デフォルト） | 'fraction' | 'progressbar'
   },
+
   navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
+    nextEl: ".swiper-button-next", // 「次へ」ボタン要素のクラス
+    prevEl: ".swiper-button-prev", // 「前へ」ボタン要素のクラス
+  },
+
+  scrollbar: {
+    el: ".swiper-scrollbar", // スクロールバー要素のクラス
   },
 });

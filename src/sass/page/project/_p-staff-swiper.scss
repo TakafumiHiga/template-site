@@ -1,0 +1,26 @@
+@use "global" as *;
+
+.p-staff__swiper {
+  width: min(100%, rem(400));
+}
+
+.p-staff__img-wrap {
+  aspect-ratio: 4 / 3;
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.p-staff_name {
+  text-align: center;
+}
+
+.p-staff__img-wrap img {
+  object-fit: cover;
+  height: 100%;
+}
+
+.p-staff__next-btn,
+.p-staff__prev-btn {
+  background: black;
+}
