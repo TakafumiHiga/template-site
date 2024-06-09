@@ -7,13 +7,18 @@
       $image_path = '';
 
       // 条件による設定
-      if (is_post_type_archive('case') || is_singular('case')) {
+      if (is_post_type_archive('case') || is_singular('case') || is_tax('case_cat')) {
         $header_en = 'Case';
         $header_jp = '制作事例';
         $image_path = '/assets/images/common/post_mv.jpg';
       }
+      elseif (is_post_type_archive('staff') || is_singular('staff') || is_tax('staff_cat')) {
+        $header_en = 'Staff';
+        $header_jp = '社員';
+        $image_path = '/assets/images/common/post_mv.jpg';
+      }
       elseif (is_home()) {
-        $header_en = 'NEWS';
+        $header_en = 'News';
         $header_jp = '新着情報';
         $image_path = '/assets/images/common/post_mv.jpg';
       }

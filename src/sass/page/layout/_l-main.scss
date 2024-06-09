@@ -1,0 +1,9 @@
+@use "global" as *;
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+.l-main {
+  flex: 1 1 0;
+}

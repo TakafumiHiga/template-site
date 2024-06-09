@@ -10,15 +10,23 @@
   <div class="p-archive-posts l-col-3">
     <!-- ループの開始 -->
     <?php
-            $cat_info = get_category(get_query_var('cat'));
             //投稿ページの場合はpaged
             $paged = get_query_var('paged') ? get_query_var('paged') : 1;
+            $type = get_query_var( 'staff_cat' ); // タクソノミーのスラッグ
             $args = [
                 'post_type' => array('staff'),
                 'orderby' => 'post_date',
                 'posts_per_page' => 3,
                 'paged' => $paged, //ページ送り
                 'category_name' => $cat_info->slug,
+                'tax_query' => array(
+                  array(
+                    'taxonomy' => 'staff_cat', // タクソノミーのスラッグ
+                    'field' => 'slug', // ターム名をスラッグで指定する（変更不要）
+                    'terms' => $type,
+                  ),
+                )
+                
             ];
             $the_query = new WP_Query($args);
             if ($the_query->have_posts()): 
