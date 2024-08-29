@@ -1,0 +1,46 @@
+@use "global" as *;
+.c-cta-btns {
+  @include mq("md") {
+    display: flex;
+    justify-content: center;
+  }
+}
+.c-cta-btns a {
+  padding: rem(22);
+  width: 100%;
+  @include mq("md") {
+    max-width: rem(203);
+    min-width: rem(203);
+    padding: rem(20) rem(16);
+    white-space: nowrap;
+  }
+}
+.c-cta-btn__tour {
+  display: block;
+  background-color: black;
+  color: white;
+  text-align: center;
+  font-size: rem(19);
+  transition: all 0.3s;
+}
+.c-cta-btn__tour:hover {
+  @include mq("md") {
+    background-color: #b1cdc8;
+  }
+}
+.c-cta-btn__job {
+  display: block;
+  background-color: black;
+  color: $c-white;
+  text-align: center;
+  font-size: rem(19);
+  transition: all 0.3s;
+}
+.c-cta-btn__job:hover {
+  @include mq("md") {
+    background-color: blue;
+  }
+}
+.--radius-4 {
+  border-radius: rem(4);
+}

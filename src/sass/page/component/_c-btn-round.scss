@@ -1,0 +1,26 @@
+@use "global" as *;
+.c-btn-round {
+  border-radius: rem(30);
+  padding: rem(12) rem(12) rem(12) rem(48);
+  border: solid 1px black;
+}
+.c-btn-round::after {
+  content: "";
+  width: rem(18);
+  height: rem(10);
+  display: inline-block;
+  background-size: contain;
+  background: url(../../assets/images/common/arrow.svg) no-repeat center/contain;
+  position: absolute;
+  top: 50%;
+  right: 8%;
+  transform: translateY(-50%);
+}
+.c-btn-round:hover {
+  background-color: black;
+  color: white;
+}
+
+// Modifier
+
+
