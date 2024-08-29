@@ -26,14 +26,9 @@
         ?>
 
     <?php get_template_part('/template-parts/archive-staff_contant'); ?>
-    <?php endwhile;
-          else: ?>
 
-    <h3 class="p-archive-post__title">只今準備中でございます。</h3>
-    <?php endif;?>
-    <?php wp_reset_postdata(); ?>
+    <?php endwhile;?>
   </div>
-
   <!-- ページナビ -->
   <div class="l-pager">
     <?php 
@@ -47,6 +42,14 @@
           the_posts_pagination( $args );
           ?>
   </div>
+
+  <?php else: ?>
+  <p class="p-archive-post__title">只今準備中でございます。</p>
+  <?php endif;?>
+  <?php wp_reset_postdata(); ?>
+
+
+
   <div class="p-top-blog__link">
     <a class="" href="<?php echo esc_url( home_url( '/' ) ); ?>">Topへ戻る</a>
   </div>
