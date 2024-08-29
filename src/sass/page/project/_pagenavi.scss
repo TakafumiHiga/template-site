@@ -1,14 +1,13 @@
 @use "global" as *;
 .prev-next {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   margin-top: 30px;
 }
 
 .pagination {
   clear: both;
-  padding-left: 15px;
-  padding-bottom: 20px;
+  justify-content: center;
 }
 
 .nav-links {
@@ -16,41 +15,22 @@
   text-align: center;
 }
 
-.pagination .current {
-  padding: 0 8px;
-  padding: 2px 9px 1px;
-}
-
-.pagination .current {
-  background: $c-black;
-  border: 1px solid $c-black;
-  color: $c-white;
-}
-
-.pagination .current {
-  display: inline-block;
-}
-
-.page-numbers,
-.pagination {
-  clear: both;
-  padding-left: 15px;
-  padding-bottom: 20px;
-}
-
 .page-numbers a,
 .page-numbers .current,
 .pagination a,
 .pagination .current {
   display: inline-block;
+  width: 43px;
+  height: 38px;
+  border-radius: 5px;
+  padding: 2px 9px 1px;
 }
 
 .page-numbers a,
 .pagination a {
-  background: $c-white;
-  border: 1px solid $c-black;
-  color: $c-black;
-  padding: 2px 9px 1px;
+  background: #009944;
+  border: 1px solid #009944;
+  color: #fff;
   text-decoration: none;
   -webkit-transition: all 0.25s linear;
   -moz-transition: all 0.25s linear;
@@ -59,7 +39,7 @@
 
 .pagination a:hover,
 .pagination .current {
-  background: $c-black;
-  border: 1px solid $c-black;
-  color: $c-white;
+  background: #fff;
+  border: 1px solid #009944;
+  color: #009944;
 }

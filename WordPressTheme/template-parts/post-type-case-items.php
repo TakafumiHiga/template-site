@@ -69,13 +69,8 @@
     </div>
   </article>
   <?php endwhile;?>
-  <?php else: ?>
-  <?php endif;?>
-  <?php wp_reset_postdata(); ?>
-</div>
-
-<div class="l-pager">
-  <?php 
+  <div class="l-pager">
+    <?php 
      $GLOBALS['wp_query']->max_num_pages = $the_query->max_num_pages;
             $args = array(
             'mid_size' => 2, 
@@ -84,4 +79,8 @@
           ); 
           the_posts_pagination( $args );
           ?>
+  </div>
+  <?php else: ?>
+  <?php endif;?>
+  <?php wp_reset_postdata(); ?>
 </div>

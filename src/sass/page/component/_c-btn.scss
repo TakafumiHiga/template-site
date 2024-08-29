@@ -1,0 +1,29 @@
+@use "global" as *;
+.c-btn {
+  display: inline-block;
+  position: relative;
+  transition: all 0.3s;
+  display: inline-flex;
+  align-items: center;
+}
+// Modifier
+//大きさ
+.--small {
+  width: min(rem(220), 100%);
+  gap: rem(20);
+}
+.--mid {
+  width: min(rem(320), 100%);
+  gap: rem(20);
+}
+.--big {
+  width: min(rem(420), 100%);
+}
+//色
+.--linear-gradient {
+  border-radius: rem(50);
+  background: linear-gradient(90deg, #4776e6 0%, #8e54e9 100%);
+}
+.--black {
+  
+}

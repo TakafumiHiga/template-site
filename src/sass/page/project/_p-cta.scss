@@ -1,0 +1,51 @@
+@use "global" as *;
+.p-cta {
+  background: lightgray;
+  margin: 0 calc(50% - 50vw);
+  width: 100vw;
+}
+.p-cta__wrap {
+  @include mq("md") {
+    max-width: rem(1060);
+    margin-inline: auto;
+  }
+}
+.p-cta-title {
+  text-align: center;
+  line-height: 1.4;
+  margin-bottom: rem(40);
+}
+.p-cta-title__jp {
+  font-size: rem(32);
+  letter-spacing: 0.078em;
+  color: white;
+  @include mq("md") {
+    font-size: rem(40);
+  }
+}
+.p-cta-title__en {
+  display: block;
+  color: white;
+  font-size: rem(16);
+  font-weight: 500;
+  font-family: $second-font-family;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  margin-top: rem(6);
+  @include mq("md") {
+    font-size: rem(24);
+  }
+}
+.p-cta__row {
+  @include mq("md") {
+    display: flex;
+    justify-content: center;
+  }
+}
+.p-cta__btns-row a:first-of-type {
+  margin-bottom: rem(20);
+  @include mq("md") {
+    margin-bottom: 0;
+    margin-right: rem(20);
+  }
+}
