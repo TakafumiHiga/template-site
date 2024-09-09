@@ -2,70 +2,62 @@
 <div class="inner l-wrap">
   <div class="l-flex">
     <div class="l-flex__main">
-      <div class="p-archive-posts l-col-3">
-        <!-- ループの開始 -->
-        <?php if (have_posts()): ?>
-        <?php while (have_posts()): the_post(); ?>
-        <a class="p-archive-post" href="<?php the_permalink(); ?>">
-          <figure class="p-archive-post__img">
-            <?php
-          if(has_post_thumbnail()):
-            the_post_thumbnail('medium_thumbnail');
-          else:
-            ?>
-            <img src="<?php echo esc_url(get_theme_file_uri('/')); ?>" alt="" />
-            <?php 
-          endif;
-          ?>
-          </figure>
-          <div class="p-archive-post__body">
-            <div class="p-archive-post__meta">
-              <time class="c-time" datetime="<?php the_time('Y.m.j'); ?>">
-                <?php echo get_the_time('Y.m.d'); ?>
-              </time>
-              <?php
-              // カテゴリーのデータを取得
-              $cat = get_the_category();
-              $cat = $cat[0];
-          ?>
-              <span
-                class="c-cat <?php $cat = get_the_category(); $cat = $cat[0]; { echo $cat->slug; } ?>"><?php $cat = get_the_category(); $cat = $cat[0]; { echo $cat->cat_name; }?></span>
-            </div>
-            <h3 class="p-archive-post__title"><?php the_title(); ?></h3>
-          </div>
-        </a>
-        <?php endwhile;?>
-        <?php else: ?>
-        <h3 class="p-archive-post__title">只今準備中でございます。</h3>
-        <?php endif;?>
-        <?php wp_reset_postdata(); ?>
-      </div>
+      <!-- リストタイプ -->
+      <ul class="p-post-lists">
+        <?php
+    $paged = get_query_var('paged') ? get_query_var('paged') : 1;
+    $args = [
+      'post_type' => 'post',
+      'orderby' => 'post_date',
+      'posts_per_page' => 4,
+      'paged' => $paged,
+    ]; 
+    $the_query = new WP_Query($args);
 
+    if ($the_query->have_posts()) :
+      while ($the_query->have_posts()) : $the_query->the_post(); 
+        $cat = get_the_category();
+        if ($cat) {
+          $cat = $cat[0];
+        }
+  ?>
+        <!-- ループの開始 -->
+        <li class="p-post-list">
+          <a class="p-post-list__link" href="<?php the_permalink(); ?>">
+            <time class="c-time" datetime="<?php the_time('Y.m.j'); ?>"><?php echo get_the_time('Y.m.d'); ?></time>
+            <span class="c-cat <?php echo esc_attr($cat->slug); ?>"><?php echo esc_html($cat->cat_name); ?></span>
+            <h3 class="p-post-list__title"><?php echo esc_html(mb_substr(get_the_title(), 0, 16)) . '…'; ?></h3>
+          </a>
+        </li>
+        <!-- ループここまで -->
+        <?php endwhile; ?>
+      </ul>
+      <?php else : ?>
+      <h3 class="p-post-list__title">只今準備中でございます。</h3>
+      <?php endif; ?>
+      <?php wp_reset_postdata(); ?>
+
+      <?php if (!is_front_page()) : ?>
       <!-- ページナビ -->
       <div class="l-pager">
-        <?php 
-          $GLOBALS['wp_query']->max_num_pages = $the_query->max_num_pages;
-
-            $args = array(
-            'mid_size' => 2, 
-            'prev_text' => '<', 
-            'next_text' => '>'
-          ); 
-          the_posts_pagination( $args );
-          ?>
+        <?php
+    $GLOBALS['wp_query']->max_num_pages = $the_query->max_num_pages;
+    $pagination_args = [
+      'mid_size' => 1, 
+      'prev_text' => '<', 
+      'next_text' => '>'
+    ]; 
+    the_posts_pagination($pagination_args);
+  ?>
       </div>
+      <?php endif; ?>
       <div class="p-top-blog__link">
-        <a class="" href="<?php echo esc_url( home_url( '/' ) ); ?>">Topへ戻る</a>
+        <a class="" href="<?php echo esc_url( home_url( '/' ) ); ?>/">Topへ戻る</a>
       </div>
     </div>
+    <aside class="l-flex__aside">
+      <?php get_sidebar();?>
+    </aside>
   </div>
 </div>
 <?php get_footer(); ?>
-
-<?php
-if (is_singular('staff-info') || is_post_type_archive('staff-info') || is_tax('staff-info-cat')) {
-    echo '<meta name="robots" content="noindex">';
-} elseif (is_singular() && get_post_meta($post->ID, 'noindex', true)) {
-    echo '<meta name="robots" content="noindex">';
-}
-?>
