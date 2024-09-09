@@ -10,7 +10,7 @@ Template Name: フォームスタイル
 </div>
 <?php get_footer(); ?>
 
-<div class="p-form__inner p-form__items-bg">
+<!-- <div class="p-form__inner p-form__items-bg">
   <div class="p-form__caption p-form__item-border">
     <p><span class="required ">必須</span>マークは<span
         class="u-c-red">必要事項</span>ですので、必ずご記入お願いします。内容によってはお時間をいただくことがあります。あらかじめご了承ください。</p>
@@ -133,4 +133,4 @@ Template Name: フォームスタイル
     [submit class:c-btn-mid class:next-btn "確認画面へ進む"]
     [multistep multistep-687 first_step skip_save "http://localhost:10198/workspace-tour/confirm/"]
   </div>
-</div>
+</div> -->
