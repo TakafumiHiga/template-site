@@ -51,10 +51,6 @@
         </a>
         <?php endwhile; ?>
       </div>
-
-      <?php else : ?>
-      <h3 class="p-archive-post__title">只今準備中でございます。</h3>
-      <?php endif; ?>
       <!-- ページナビ -->
       <div class="l-pager">
         <?php
@@ -68,6 +64,11 @@
         the_posts_pagination($pagination_args);
         ?>
       </div>
+
+      <?php else : ?>
+      <h3 class="p-archive-post__title">只今準備中でございます。</h3>
+      <?php endif; ?>
+
       <?php wp_reset_postdata(); ?>
       <!-- トップページへのリンク -->
       <div class="p-top-blog__link">
