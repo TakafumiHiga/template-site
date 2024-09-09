@@ -32,11 +32,6 @@
         <!-- ループここまで -->
         <?php endwhile; ?>
       </ul>
-      <?php else : ?>
-      <h3 class="p-post-list__title">只今準備中でございます。</h3>
-      <?php endif; ?>
-
-
       <?php if (!is_front_page()) : ?>
       <!-- ページナビ -->
       <div class="l-pager">
@@ -51,6 +46,12 @@
   ?>
       </div>
       <?php endif; ?>
+      <?php else : ?>
+      <h3 class="p-post-list__title">只今準備中でございます。</h3>
+      <?php endif; ?>
+
+
+
       <?php wp_reset_postdata(); ?>
       <div class="p-top-blog__link">
         <a class="" href="<?php echo esc_url( home_url( '/' ) ); ?>/">Topへ戻る</a>
