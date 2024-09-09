@@ -5,7 +5,7 @@
               the_post_thumbnail('medium_thumbnail');
               else:
             ?>
-    <img src="<?php echo esc_url(get_theme_file_uri('/')); ?>" alt="" />
+    <img src="<?php echo esc_url(get_theme_file_uri('/')); ?>" alt="Noimage" />
     <?php 
           endif;
           ?>
