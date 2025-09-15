@@ -29,7 +29,7 @@
     </div>
   </section>
   <!-- cta -->
-  <section class="l-cta p-cta">
+  <section class="l-cta p-cta" id="cta">
     <div class="p-cta__wrap">
       <h2 class="p-cta__title c-top-section-title">
         <span class="p-cta-title__en">CONTACT</span>
@@ -57,7 +57,10 @@
       </div>
     </div>
   </section> <!-- cta -->
-
+  <section id="anchor1" class="anchor anchor1">anchor anchor1</section>
+  <section id="anchor2" class="anchor anchor2">anchor anchor2</section>
+  <section id="anchor3" class="anchor anchor3">anchor anchor3</section>
+  <section id="anchor4" class="anchor anchor4">anchor anchor4</section>
 </div>
 
 

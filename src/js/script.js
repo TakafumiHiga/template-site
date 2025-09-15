@@ -1,6 +1,6 @@
 jQuery(function ($) {
   // この中であればWordpressでも「$」が使用可能になる
-  var topBtn = $(".pagetop");
+  let topBtn = $(".pagetop");
   topBtn.hide(); // ボタンの表示設定
 
   $(window).scroll(function () {
@@ -32,15 +32,15 @@ jQuery(function ($) {
   });
 
   $(document).on("click", 'a[href*="#"]', function () {
-    var time = 100;
-    var header = $(".p-header").innerHeight();
-    var target = $(this.hash);
+    let time = 100;
+    let header = $(".p-header").innerHeight();
+    let target = $(this.hash);
     if (!target.length) return;
 
     // .p-headerの高さを取得
-    var pHeaderHeight = $(".p-header").outerHeight() || 0;
+    let pHeaderHeight = $(".p-header").outerHeight() || 0;
     // スクロール位置を計算する際に、.p-headerの高さを考慮に入れる
-    var targetY = target.offset().top - header - pHeaderHeight;
+    let targetY = target.offset().top - header - pHeaderHeight;
 
     $("body").removeClass("is-fixed");
 
@@ -64,7 +64,7 @@ jQuery(function ($) {
       event.stopPropagation();
 
       // クリックしたsubmenu-toggleの親のli要素の中で.sub-menuを探してslideToggleとtoggleClassを適用
-      var submenu = $(this).closest("li").find(".sub-menu");
+      let submenu = $(this).closest("li").find(".sub-menu");
       submenu.slideToggle(300);
       submenu.toggleClass("open");
     });
@@ -72,12 +72,12 @@ jQuery(function ($) {
 });
 
 $(document).ready(function () {
-  var shadowTimeout;
-  var headerHeight = $(".p-header__menu").height(); // ヘッダー要素の高さを取得
+  let shadowTimeout;
+  let headerHeight = $(".p-header__menu").height(); // ヘッダー要素の高さを取得
 
   $(window).on("scroll", function () {
     // スクロール位置がヘッダーの高さ以上か、ページのトップに戻ったかを判断
-    var windowPosition = $(this).scrollTop() > headerHeight;
+    let windowPosition = $(this).scrollTop() > headerHeight;
 
     // スクロール位置に応じて、ヘッダーメニューに影をつけるクラスを切り替え
     $(".p-header__menu").toggleClass("shadow", windowPosition);
@@ -124,7 +124,7 @@ $(document).ready(function () {
 
 // top-swiper
 
-var topSwiper = new Swiper(".js-mv-swiper", {
+let topSwiper = new Swiper(".js-mv-swiper", {
   loop: true,
   spaceBetween: 30,
   centeredSlides: true,

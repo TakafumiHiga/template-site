@@ -30,15 +30,16 @@
 <body <?php body_class(); ?>>
   <?php wp_body_open(); ?>
   <header class="l-header">
-    <?php get_template_part('includes/global-navi');
-  //メインビジュアルのトップと下層ページで分岐
-  if ( is_front_page()) :
-      get_template_part('includes/kv-slider');
-  elseif ( is_page() ) :
-      get_template_part('includes/lower-mv');
-  else:
-      get_template_part('includes/post-type-header');
-  endif;?>
-    <?php get_template_part('includes/breadcrumbs');?>
+    <?php get_template_part('includes/global-navi') ;?>
   </header>
   <main class="l-main">
+    <!-- メインビジュアルのトップと下層ページで分岐 -->
+
+    <?php if ( is_front_page()) :
+  get_template_part('includes/kv-slider');
+  elseif ( is_page() ) :
+  get_template_part('includes/lower-mv');
+  else:
+  get_template_part('includes/post-type-header');
+  endif;?>
+    <?php get_template_part('includes/breadcrumbs');?>

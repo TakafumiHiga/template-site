@@ -58,7 +58,7 @@ wp_enqueue_script( 'swiper', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bund
 
 //min.jsを使う場合はminに変更
 // 独自のスクリプト（'jquery-external'に依存）
-wp_enqueue_script( 'my_js', get_template_directory_uri() . '/assets/js/script.js', array(), '1.0.0', true );
+wp_enqueue_script( 'my_js', get_template_directory_uri() . '/assets/js/script.min.js', array(), '1.0.0', true );
 
 wp_enqueue_script( 'my_swiper_js', get_template_directory_uri() . '/assets/js/swiper.js', array(), '', true );
 
