@@ -796,10 +796,6 @@ body.is-fixed {
 	background-color: lightgray;
 }
 
-.l-header {
-	position: relative;
-}
-
 body {
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -821,6 +817,26 @@ body {
 	margin-bottom: 4.375rem;
 	margin-top: 50px;
 	margin-top: 3.125rem;
+}
+
+.anchor {
+	background-color: green;
+	height: 20vh;
+}
+
+.anchor2 {
+	background-color: red;
+	height: 80vh;
+}
+
+.anchor3 {
+	background-color: yellow;
+	height: 95vh;
+}
+
+.anchor4 {
+	background-color: rgb(43, 67, 92);
+	height: 60vh;
 }
 
 .p-copyright {
@@ -2060,10 +2076,6 @@ a:hover {
 
 .l-flex__aside {
 	min-width: 15rem;
-}
-
-.l-header {
-	padding-top: 1rem;
 }
 
 .l-wrap {

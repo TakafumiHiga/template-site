@@ -34,7 +34,7 @@ get_header();
     if ($the_query->have_posts()) :
       while ($the_query->have_posts()) : $the_query->the_post();
         // テンプレートファイルを読み込み
-        get_template_part('template-parts/archive-staff_contant');
+        get_template_part('template-parts/archive-staff_content');
       endwhile;
     ?>
   </div>

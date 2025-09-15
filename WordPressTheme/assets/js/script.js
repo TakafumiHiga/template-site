@@ -27,11 +27,11 @@ jQuery(function ($) {
   });
 
   // ハンバーガーメニュー
-  $("#js-hamburger").click(function () {
-    $("#js-drower").toggleClass("open");
-    $("body").toggleClass("is-fixed");
-    $("#js-hamburger").toggleClass("active"); // この行を再度追加
-  });
+  // $("#js-hamburger").click(function () {
+  //   $("#js-drower").toggleClass("open");
+  //   $("body").toggleClass("is-fixed");
+  //   $("#js-hamburger").toggleClass("active"); // この行を再度追加
+  // });
 
   $(document).on("click", 'a[href*="#"]', function () {
     var time = 100;
